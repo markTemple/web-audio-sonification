@@ -1,0 +1,63 @@
+<body>
+  <fieldset class="title">
+    <h1>This page is to test css</h1>
+    <h2>Here we have a subtitle</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus quam, pretium in aliquam ac, congue nec tellus. Maecenas congue ante quis nunc fringilla accumsan. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce nec purus porttitor, lacinia lectus sit amet, dapibus sapien. Suspendisse viverra consectetur pharetra. Donec tristique finibus pellentesque. Cras rutrum egestas tristique. Suspendisse pulvinar, nisl mattis malesuada semper, elit est placerat risus, vel blandit ligula augue in dui. Vestibulum et consectetur nunc. Donec porttitor ex id libero gravida ullamcorper. In laoreet tellus ullamcorper placerat scelerisque. Nullam nec aliquam elit, sit amet venenatis mi. In interdum luctus mi, at cursus nisi mattis in. Nam eget varius augue, non consectetur turpis. Sed bibendum dignissim sem id consectetur.</p>
+    <h2>Some more ipsum</h2>
+    <p>Praesent pulvinar ipsum quis neque tempor iaculis. Proin erat velit, sollicitudin sit amet ex non, vehicula porta tellus. Suspendisse semper a dolor eu pharetra. Sed aliquam magna tempor, finibus leo in, mollis justo. Nunc et pretium lacus. Morbi in neque faucibus, facilisis ligula a, venenatis mauris. Vestibulum sit amet sollicitudin metus. Fusce ligula libero, suscipit et magna et, pellentesque facilisis diam. Mauris erat orci, ornare eu convallis quis, mollis ac ex. Aliquam ac magna nec arcu ullamcorper tristique ut id dui. Fusce imperdiet facilisis erat. Quisque molestie tincidunt metus consequat finibus. Vivamus consequat turpis est. Nulla fringilla vehicula semper. Donec blandit maximus urna, eu sollicitudin sapien dapibus at. Aenean lacus tellus, facilisis at urna ut, blandit condimentum sem.</p>
+  </div>
+  <div class="app">
+    <fieldset class="content">
+      <h1>This page is to test css</h1>
+      <h2>Here we have a subtitle</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed tellus quam, pretium in aliquam ac, congue nec tellus. Maecenas congue ante quis nunc fringilla accumsan. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce nec purus porttitor, lacinia lectus sit amet, dapibus sapien. Suspendisse viverra consectetur pharetra. Donec tristique finibus pellentesque. Cras rutrum egestas tristique. Suspendisse pulvinar, nisl mattis malesuada semper, elit est placerat risus, vel blandit ligula augue in dui. Vestibulum et consectetur nunc. Donec porttitor ex id libero gravida ullamcorper. In laoreet tellus ullamcorper placerat scelerisque. Nullam nec aliquam elit, sit amet venenatis mi. In interdum luctus mi, at cursus nisi mattis in. Nam eget varius augue, non consectetur turpis. Sed bibendum dignissim sem id consectetur.</p>
+      <h2>Some more ipsum</h2>
+      <p>Praesent pulvinar ipsum quis neque tempor iaculis. Proin erat velit, sollicitudin sit amet ex non, vehicula porta tellus. Suspendisse semper a dolor eu pharetra. Sed aliquam magna tempor, finibus leo in, mollis justo. Nunc et pretium lacus. Morbi in neque faucibus, facilisis ligula a, venenatis mauris. Vestibulum sit amet sollicitudin metus. Fusce ligula libero, suscipit et magna et, pellentesque facilisis diam. Mauris erat orci, ornare eu convallis quis, mollis ac ex. Aliquam ac magna nec arcu ullamcorper tristique ut id dui. Fusce imperdiet facilisis erat. Quisque molestie tincidunt metus consequat finibus. Vivamus consequat turpis est. Nulla fringilla vehicula semper. Donec blandit maximus urna, eu sollicitudin sapien dapibus at. Aenean lacus tellus, facilisis at urna ut, blandit condimentum sem.</p>
+    </div>
+  </div>
+</body>
+
+<script>
+
+</script>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Material+Icons');
+  body {
+    margin: 0px;
+  }
+  .title {
+    font-size: 80%;
+  }
+  .app {
+    background-color: rgba(0, 0, 0, 0.2)
+  }
+  @media screen and (max-width: 600px) {
+    .title {
+      /* font-size: 180% */
+    }
+    fieldset .app {
+      background-color: rgba(0, 0, 0, 0.8)
+    }
+    .app h1,
+    .app h2 {
+      color: rgb(255, 255, 255)
+    }
+    .app p {
+      color: rgb(200, 200, 200)
+    }
+  }
+  h1 {
+    font-size: 2em;
+    font-family: "Roboto";
+    text-transform: uppercase;
+  }
+  h2 {
+    font-size: 1em;
+    font-family: "Roboto";
+  }
+  p {
+    font-size: 0.7em;
+      font-family: "Roboto Mono";
+  }
+</style>

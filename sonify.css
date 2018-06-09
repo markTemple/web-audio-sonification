@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Mono|Gentium+Basic|Material+Icons');
+
+/* * {margin: 0; padding: 0;} */
+:root {
+  --sans-serif: 'Roboto', sans-serif;
+  --monospace: 'Roboto Mono', monospace;
+  --serif: 'Gentium Basic', serif;'
+  --icons: 'Material Icons';
+  --color: blue;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* Rules for sizing the icon. */
+.material-icons.md-19 { font-size: 19px; }
+
+.material-icons{
+  background-color: #C64521;
+  color: white;
+  padding: 5px 5px 5px 5px; /*T R B L*/
+  float: left;
+}
+/*
+#content {
+  width: 1050px ;
+  margin: 5px 10px 0px 10px;
+}  */
+/*T R B L*/
+
+body {
+  font-family: var(--sans-serif);
+   margin: auto; /*T R B L*/
+   font-size: 17px;
+   padding: 0;
+   /* background: #E7DBBD; */
+   max-width: 1200px;
+}
+
+h1 {
+  color:#525552;
+  text-align:center;
+  font-weight:normal;
+  text-transform: uppercase;
+}
+
+h2 {
+  color:#C64521;
+  text-align:center;
+  font-weight:normal;
+  margin:10px 0px 10px 0px;
+}
+
+.textH2{
+  color:#C64521;
+  text-align: left;
+  font-size:1.5rem;
+  /* text-transform: uppercase; */
+  margin:10px 0px 10px 0px;
+}
+
+h3 {
+  color:#525552;
+  text-align:center;
+  font-weight:normal;
+}
+
+h4 {
+  color:#C64521;
+  text-align:center;
+  text-transform: uppercase;
+  font-weight:normal;
+}
+
+.justNiceText{
+
+}
+
+br{
+  clear: left;
+}
+
+b{
+  color:#C64521;
+}
+
+a{
+  text-decoration: none;
+}
+
+.fieldset{
+  /* border:1px solid #B7AD99; */
+  /* clear: left; */
+  /* width:100%;
+  float:left;
+  margin: auto; */
+
+}
+
+.boarderbox{
+  /* border:1px solid #B7AD99; */
+  background: #F2F0E6;
+  padding-bottom: 10px;
+}
+
+.margin{
+  margin:5px 5px;
+}
+
+main{
+  margin: 60px 0px 0px 0px;
+}
+canvas {
+  /* border:2px solid #E7DBBD; */
+  width: 100%;
+  margin: auto;
+}
+
+label{ /* eg text to left of dropdown box*/
+  float: left;
+  width: 50px;
+  /* font-weight: bold; */
+  line-height: 2;
+}
+
+input{ /*enter DNA seq box and radio button size*/
+  margin:  5px 5px 5px 5px; /*T R B L*/
+  font-size: 0.8em;
+  background: #E7DBBD;
+  font-family: var(--monospace);
+  color: #525552;
+  border:1px solid #B7AD99;
+  border-radius: 5px;
+}
+
+textarea{
+  margin:  5px 5px 5px 5px; /*T R B L*/
+  font-size:0.8em;
+  background: #E7DBBD;
+  width: 70%;
+  height: 5em;
+  font-family: var(--monospace);
+  color: #525552;
+  border:1px solid #B7AD99;
+  border-radius: 5px;
+}
+
+/* radio buttons in spans */
+span {
+  /* color: #525552; */
+  color: #2980b9;
+  line-height: 1;
+}
+
+/* Blue from Material Belizehole */
+.radio_span {
+  font-family: var(--monospace);
+  color: #2980b9;
+}
+.highlight{
+}
+.highlight:hover{
+  background: #E7DBBD;
+}
+.DNA_seq{
+  width: 100%;
+  font-family: var(--monospace);
+  font-size:0.8em;
+  overflow-wrap: break-word;
+  /* word-wrap: break-word; */
+  margin: 0px 0px 0px 0px; /*T R B L*/
+  padding: 0px 0px 0px 0px;
+  text-align:left;
+}
+
+.help_text{
+  font-family: var(--san-serif);
+  color: #525552;
+  font-size:.8em;
+  padding: 0px 0px 0px 0px; /*T R B L*/
+}
+/* .wraptxt{
+  width: 100%;
+  overflow-wrap: break-word;
+  /* word-wrap: break-word; */
+}
+
+.small_Italic{
+  font-size:0.6rem;
+  color: #525552;
+  font-family: var(--serif);
+  font-style: italic;
+}
+
+i {
+  font-size:1.5em;
+  color: #C64521;
+}
+/* i:hover {
+  font-size:1.5em;
+  color: white;
+} */
+
+.text90 {
+  -webkit-transform:  rotate(270deg);
+  -moz-transform:  rotate(270deg);
+  -o-transform:  rotate(270deg);
+  writing-mode: lr-tb;
+}
+
+p {
+  margin: 10px 10px 10px 10px; /*T R B L*/
+  color: #525552;
+  font-size: 0.9em;
+}
+
+.p2 {
+  margin: 0px 0px 0px 0px; /*T R B L*/
+  color: #525552;
+}
+
+ul {
+  list-style-type: square;
+  color: #525552;
+  font-size:0.9em;
+}
+
+audio {
+  border:1px solid #E7DBBD;
+  margin: 0 auto;
+  display: table;
+}
+
+.width80{
+  float:left;
+  width: 70%;
+}
+
+.sonify {
+  margin: 0px 10px 0px 7px; /*T R B L*/
+  padding: 0px 5px 0px 5px;
+  width: 80%;
+}
+
+/* .show{
+  background-color: red;
+  font-size: 2em;
+} */
+
+/*set up to control show/hide buttons*/
+/* .submitbutton {
+  background: #FFFFFF;
+  border: #5588AA 1px solid;
+  color: #333333;
+  margin: 1px 0px 1px 10px;
+  padding: 0px 5px 0px 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  float: right;
+}
+
+.submitbutton:hover {
+  background: #e8edff;
+  border: #0033FF 1px solid;
+  color: #990000;
+} */
+
+
+.box-table-a {
+  text-align: center;
+  margin: auto; /*make table center in firefox*/
+  width:100%;
+  table-layout: fixed;
+}
+.box-table-a th {
+  text-align: center;
+  padding: 10px 4px 10px 4px; /*T R B L*/
+  background: #525552;
+  color: #E7DBBD;
+  border-top: 1px solid #E7DBBD;
+  font-size: 0.8em;
+  text-transform: uppercase;
+
+}
+.box-table-a td {
+  /* font-family: var(--monospace); */
+  padding: 2px;
+  background: #E7DBBD;
+  color: #000000;
+  border: 1px solid #E7DBBD;
+}
+
+.box-table-a tr:hover td {
+  background: #F2F0E6;
+  color: #525552;
+  word-wrap:break-word;
+  border: 1px solid #E7DBBD;
+}
+
+/* And set the max-width of the parent element */
+.video-wrap {
+  width: 100%;
+  max-width: 440px;
+  margin: auto; /*T R B L*/
+}
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+}
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.footer{
+  clear: both;
+  width:100%
+  border:1px solid #B7AD99;
+  background: #F2F0E6;
+  padding: 10px 10px 10px 10px;
+  font-style: italic;
+  font-size: 0.7em;
+}
+
+/* @media only screen and (min-width: 320px) {
+    .topnav a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 5px 15px 5px 15px;
+      text-decoration: none;
+    }
+}
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 768px) {
+    .fieldset{
+      width:50%;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    h1 {
+      font-size:3em;
+      font-weight:normal;
+    }
+    h2 {
+      font-size:2.2em;
+      font-weight:normal;
+    }
+    h3 {
+      font-size:1.8em;
+      font-weight:normal;
+    }
+    h4 {
+      font-size:1.6em;
+      font-weight:normal;
+    }
+} */

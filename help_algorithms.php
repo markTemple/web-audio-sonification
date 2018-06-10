@@ -4,11 +4,13 @@ include("./arrays.php");
 include("sonify.java");
 //include("help_menu.php");
 ?>
+
+<h1>Algorithms</h1>
 <div class="container">
   <div class="row">
   <div class="boarderbox col-md-6">
 
-<h2>Algorithm 1<br>Reading frame codons</h2>
+<h2>Reading frame codons</h2>
 <ul class="fa-ul">
     <li><span class="fa-li"><i class="fas fa-check-square"></i></span><span class="fa-li"><i class="fas fa-check-square"></i></span>Has inherent biological logic.
     </li>
@@ -79,7 +81,7 @@ include("sonify.java");
 </div>
 
 <div class="boarderbox col-md-6">
-    <h2>Algorithm 2<br>Protein sequence </h2>
+    <h2>Protein sequence </h2>
     <ul class="fa-ul">
         <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Has inherent biological logic.
         </li>
@@ -117,10 +119,8 @@ include("sonify.java");
         </tr>
         </p>
     </table>
-  </div>
-
-<div class="boarderbox col-md-6">
-    <h2>Algorithm 3<br>Tri-nucleotides</h2>
+  
+    <h2>Tri-nucleotides</h2>
     <ul class="fa-ul">
         <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Has no inherent biological logic.
         </li>
@@ -153,7 +153,7 @@ include("sonify.java");
 </div>
 
 <div class="boarderbox col-md-6">
-    <h2>Algorithm 4<br>Di-nucleotide pairs</h2>
+    <h2>Di-nucleotides</h2>
     <ul class="fa-ul">
         <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Has no inherent biological logic
         </li>
@@ -185,7 +185,7 @@ include("sonify.java");
 </div>
 
 <div class="boarderbox col-md-6">
-    <h2>Algorithm 5<br>Di-nucleotides</h2>
+    <h2>Di-nucleotide pairs</h2>
     <ul class="fa-ul">
         <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Has no inherent biological logic
         </li>
@@ -235,7 +235,7 @@ include("sonify.java");
 </div>
 
 <div class="boarderbox col-md-6">
-    <h2>Algorithm 6<br>Mono-nucleotides </h2>
+    <h2>Mono-nucleotides </h2>
     <ul class="fa-ul">
         <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Has no inherent biological logic
         </li>

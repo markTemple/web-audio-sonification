@@ -1,8 +1,7 @@
 
 
 
-  <div class="footer boarderbox">
-    <hr>
+  <div class="footer">
 Written by Mark Temple, School of Science and Health, Western Sydney University
   </div>
 </main>

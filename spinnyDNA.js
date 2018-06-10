@@ -1,5 +1,6 @@
 let AudioContext = window.AudioContext || window.webkitAudioContext;
 let DNAaudioContext = new AudioContext();
+
 async function playDnaAudio () {
   var canvas = document.getElementById('dnapaper');
   var c = canvas.getContext('2d');
@@ -649,26 +650,6 @@ async function playDnaAudio () {
     }
   }
 
-  // function preDraw () {
-  //   let x = 0;
-  //   let rf = 1;
-  //   // c.clearRect(0,0,canvas.width,canvas.height);
-  //     RFArr().forEach(function(RFnumb ) {
-  //     // console.log('RFnumb', RFnumb);
-  //     x = RFnumb*140 ;
-  //
-  //     c.beginPath();
-  //     c.textAlign = 'right';
-  //     c.font = '12px Verdana';
-  //     c.fillStyle = '#F2F0E6';
-  //     c.fillRect(0, 0, canvas.width, canvas.height);
-  //
-  //     c.fillText('Frame '+rf, 100 + x, 25);
-  //     rf++;
-  //   });
-  // }
-  // preDraw()
-
   function redGreen (rf, col) {
     c.beginPath();
     c.arc(90 + 160 * rf, 80, 70, 0, 2 * Math.PI, false);
@@ -786,9 +767,9 @@ async function playDnaAudio () {
 
 }; // end window.onload
 
-window.addEventListener('error', (...args) => {
-  console.log(args);
-});
+// window.addEventListener('error', (...args) => {
+//   console.log(args);
+// });
 
 window.addEventListener('load', () => {
   var suspendBtn = document.getElementById('suspend');

@@ -285,355 +285,347 @@ $text_strings = makeTextstrings($dna_seq);
 // (base64_encode(file_get_contents("./midi_class_v175/tmp/testMIDI{$blah}.mid" )));
 
 ?>
-
 <div class="container">
   <div class="row">
-    <div class="col-md-1"></div>
+    <div class="col-md-1">
+    </div>
     <div class="boarderbox col-md-10">
       <form action="./read_fasta.php" method="post" >
-      <?php include("form_audio_control.php"); ?>
-      <input name="dna_seq" type="hidden" value="<?php echo $dna_seq ;?>" />
-      <input name="DNAseq_name" type="hidden" value="<?php echo $_POST['DNAseq_name']; ?>" />
-      <input name="yeastdnaSeqs_or_Predefined" type="hidden" value="<?php echo $yeastdnaSeqs_or_Predefined ;?>" />
-
-      <button type="submit" class="btn" onClick="javascript: form.action='index.php';" />
-      <i class="fas fa-dna"></i></button>
-
-      <canvas id="dnapaper" width="500px" height="200px"></canvas>
-
-    <div class="btn-group btn-sm">
-      <button type="button" class="btn" id="play" />
-        <i class="fas fa-play"></i>
+        <?php include("form_audio_control.php"); ?>
+        <input name="dna_seq" type="hidden" value="<?php echo $dna_seq ;?>" />
+        <input name="DNAseq_name" type="hidden" value="<?php echo $_POST['DNAseq_name']; ?>" />
+        <input name="yeastdnaSeqs_or_Predefined" type="hidden" value="<?php echo $yeastdnaSeqs_or_Predefined ;?>" />
+        <button type="submit" class="btn" onClick="javascript: form.action='index.php';" />
+        <i class="fas fa-dna">
+        </i>
+        </button>
+      <canvas id="dnapaper" width="500px" height="200px">
+      </canvas>
+      <div class="btn-group btn-sm">
+        <button type="button" class="btn" id="play" />
+        <i class="fas fa-play">
+        </i>
         Play
-      </button>
+        </button>
       <button type="button" class="btn" id="suspend" />
-        <i class="fas fa-pause"></i>
-        Pause
+      <i class="fas fa-pause">
+      </i>
+      Pause
       </button>
-    </div>
-
-      </form>
-    </div>
-    <?php
-    echo '<script>';
-    echo 'var stopstart = ' . json_encode($postdata['stopstart']) . ';';
-    echo 'let frameNum = ' . json_encode($postdata['frameNum']) . ';';
-    echo 'let numb_of_RFs = ' . json_encode($numb_of_RFs) . ';';
-    echo 'let dna_php = ' . json_encode($dna_seq) . ';';
-    echo 'let sonify_motif = ' . json_encode($_POST['sonify_motif']) . ';';
-    echo '</script>';
-    ?>
-    <script src="./spinnyDNA.js"></script>
-    <?php  //include("./JZZ_PlayMidiFile.php"); ?>
-    <div class="col-md-1"></div>
   </div>
-
-  </div>
+  </form>
+</div>
+<?php
+echo '<script>';
+echo 'var stopstart = ' . json_encode($postdata['stopstart']) . ';';
+echo 'let frameNum = ' . json_encode($postdata['frameNum']) . ';';
+echo 'let numb_of_RFs = ' . json_encode($numb_of_RFs) . ';';
+echo 'let dna_php = ' . json_encode($dna_seq) . ';';
+echo 'let sonify_motif = ' . json_encode($_POST['sonify_motif']) . ';';
+echo '</script>';
+?>
+<script src="./spinnyDNA.js">
+</script>
+<?php  //include("./JZZ_PlayMidiFile.php"); ?>
+<div class="col-md-1">
+</div>
+</div>
+</div>
 </div>
 <hr>
 <div class="container">
   <div class="row">
-  <div class="boarderbox col-md-6">
-
-        <h2>Summary of sonified audio</h2>
-
-        <?php
+    <div class="boarderbox col-md-6">
+      <h2>Summary of sonified audio
+      </h2>
+      <?php
 $rf_numb_count = array(1, 2, 3);
 $pair_count = array(1, 2);
 ?>
-<table class="box-table-a" summary="DNA reading frames">
-<tr>
-    <th width="20%"></th>
-    <th align="left" width="80%">Audio generated from <b><?php echo $_POST['DNAseq_name']; ?></b>
-    </th>
-</tr>
-<tr>
-    <th>All Instrument Notes</th>
-    <td align="left">
-        <p class="DNA_seq">
-            <?php foreach($one_note_chunks as $v){echo $v;}?>
-        </p>
-    </td>
-</tr>
-
-<?php
+      <table class="box-table-a" summary="DNA reading frames">
+        <tr>
+          <th width="20%">
+          </th>
+          <th align="left" width="80%">Audio generated from 
+            <b>
+              <?php echo $_POST['DNAseq_name']; ?>
+            </b>
+          </th>
+        </tr>
+        <tr>
+          <th>All Instrument Notes
+          </th>
+          <td align="left">
+            <p class="DNA_seq">
+              <?php foreach($one_note_chunks as $v){echo $v;}?>
+            </p>
+          </td>
+        </tr>
+        <?php
 //*****************************************//
 if($_POST['frameNum'] === '3'){//readingFrame codons
 foreach($rf_numb_count as $rf){
 $textCapture[] =array($mididata["$rf"]['reading_frame'], $mididata["$rf"]['instrument_name']);?>
-
-    <tr>
-        <th width="20%">
+        <tr>
+          <th width="20%">
             <?php echo $mididata["$rf"]['reading_frame']; ?>
-        </th>
-        <td align="left">
+          </th>
+          <td align="left">
             <p class="DNA_seq">
-                <?php echo $codon_str_table["$rf"]; ?>
+              <?php echo $codon_str_table["$rf"]; ?>
             </p>
-        </td>
-    </tr>
-
-    <tr>
-        <th width="20%">
+          </td>
+        </tr>
+        <tr>
+          <th width="20%">
             <?php echo $mididata["$rf"]['instrument_name']; ?>
-        </th>
-        <td align="left">
+          </th>
+          <td align="left">
             <p class="DNA_seq">
-                <?php echo $note_str_table["$rf"]; ?>
+              <?php echo $note_str_table["$rf"]; ?>
             </p>
-        </td>
-    </tr>
-    <?php
+          </td>
+        </tr>
+        <?php
 }
 ?>
-</table>
-<?php
+      </table>
+      <?php
 }
-
 //*****************************************//
 elseif($_POST['frameNum'] === '1'){//Protein sequence
 $textCapture[] =array($mididata['1']['reading_frame'], $mididata['1']['instrument_name']);?>
-
-<tr>
-    <th width="20%">DNA sequence</th>
-    <td align="left">
-        <p class="DNA_seq">
+      <tr>
+        <th width="20%">DNA sequence
+        </th>
+        <td align="left">
+          <p class="DNA_seq">
             <?php echo $codon_str_table['1'];?>
-        </p>
-    </td>
-</tr>
-
-<tr>
-    <th width="20%">
-        <?php echo $mididata['1']['reading_frame']; ?>
-    </th>
-    <td align="left">
-        <p class="DNA_seq">
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th width="20%">
+          <?php echo $mididata['1']['reading_frame']; ?>
+        </th>
+        <td align="left">
+          <p class="DNA_seq">
             <?php echo $protein_str_table['1']; ?>
-        </p>
-    </td>
-</tr>
-
-<tr>
-    <th width="20%">
-        <?php echo $mididata['1']['instrument_name']; ?>
-    </th>
-    <td align="left">
-        <p class="DNA_seq">
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <th width="20%">
+          <?php echo $mididata['1']['instrument_name']; ?>
+        </th>
+        <td align="left">
+          <p class="DNA_seq">
             <?php echo $protein_note_str_table['1']; ?>
-        </p>
-    </td>
-</tr>
-</table>
-<?php
+          </p>
+        </td>
+      </tr>
+      </table>
+    <?php
 }
-
 //*****************************************//
 elseif($_POST['frameNum'] === '3bp'){//Tri-nucleotides
 $textCapture[] =array('"Tri-nucleotide sequence"', $mididata['1']['instrument_name']);?>
-
-  <tr>
-      <th width="20%">DNA sequence</th>
-      <td align="left">
-          <p class="DNA_seq">
-              <?php echo $codon_str_table['1']; ?>
-          </p>
-      </td>
-  </tr>
-
-  <tr>
-      <th width="20%">
-          <?php echo $mididata['1']['instrument_name']; ?>
+    <tr>
+      <th width="20%">DNA sequence
       </th>
       <td align="left">
-          <p class="DNA_seq">
-              <?php echo $protein_note_str_table['1']; ?>
-          </p>
+        <p class="DNA_seq">
+          <?php echo $codon_str_table['1']; ?>
+        </p>
       </td>
-  </tr>
-  </table>
-
+    </tr>
+    <tr>
+      <th width="20%">
+        <?php echo $mididata['1']['instrument_name']; ?>
+      </th>
+      <td align="left">
+        <p class="DNA_seq">
+          <?php echo $protein_note_str_table['1']; ?>
+        </p>
+      </td>
+    </tr>
+    </table>
   <?php
 }
-
 //*****************************************//
 elseif($_POST['frameNum'] === '2bpx2'){//Di-nucleotide pairs
 foreach($pair_count as $rf){
 $textCapture[] =array($mididata["$rf"]['reading_frame'], $mididata["$rf"]['instrument_name']);?>
-
   <tr>
-      <th width="20%">
-          <?php echo $mididata["$rf"]['reading_frame']; ?>
-      </th>
-      <td align="left">
-          <p class="DNA_seq">
-              <?php echo $codon_str_table["$rf"]; ?>
-          </p>
-      </td>
+    <th width="20%">
+      <?php echo $mididata["$rf"]['reading_frame']; ?>
+    </th>
+    <td align="left">
+      <p class="DNA_seq">
+        <?php echo $codon_str_table["$rf"]; ?>
+      </p>
+    </td>
   </tr>
-
   <tr>
-      <th width="20%">
-          <?php echo $mididata["$rf"]['instrument_name']; ?>
-      </th>
-      <td align="left">
-          <p class="DNA_seq">
-              <?php echo $protein_note_str_table["$rf"]; ?>
-          </p>
-      </td>
+    <th width="20%">
+      <?php echo $mididata["$rf"]['instrument_name']; ?>
+    </th>
+    <td align="left">
+      <p class="DNA_seq">
+        <?php echo $protein_note_str_table["$rf"]; ?>
+      </p>
+    </td>
   </tr>
   <?php
 }?>
   </table>
-  <?php
+<?php
 }
-
 //*****************************************//
 elseif($_POST['frameNum'] === '2bp'){//Di-nucleotides
 $textCapture[] =array('"Di-nucleotide sequence"', $mididata['1']['instrument_name']);?>
-
-  <tr>
-      <th width="20%">DNA sequence</th>
-      <td align="left">
-          <p class="DNA_seq">
-              <?php echo $codon_str_table['1']; ?>
-          </p>
-      </td>
-  </tr>
-
-  <tr>
-      <th width="20%">
-          <?php echo $mididata['1']['instrument_name']; ?>
-      </th>
-      <td align="left">
-          <p class="DNA_seq">
-              <?php echo $protein_note_str_table['1']; ?>
-          </p>
-      </td>
-  </tr>
-  </table>
-  <?php
+<tr>
+  <th width="20%">DNA sequence
+  </th>
+  <td align="left">
+    <p class="DNA_seq">
+      <?php echo $codon_str_table['1']; ?>
+    </p>
+  </td>
+</tr>
+<tr>
+  <th width="20%">
+    <?php echo $mididata['1']['instrument_name']; ?>
+  </th>
+  <td align="left">
+    <p class="DNA_seq">
+      <?php echo $protein_note_str_table['1']; ?>
+    </p>
+  </td>
+</tr>
+</table>
+<?php
 }
-
 //*****************************************//
 elseif($_POST['frameNum'] === '1bp'){//Mono-nucleotides
 $textCapture[] =array('"Mono-nucleotide sequence"', $mididata['1']['instrument_name']);?>
-
-  <tr>
-      <th width="20%">DNA sequence</th>
-      <td align="left">
-          <p class="DNA_seq">
-              <?php //echo $monobp_formated_str_table['1']; ?>
-                  <?php echo str_replace(' ', '-', $monobp_formated_str_table['1']); ?>
-          </p>
-      </td>
+<tr>
+  <th width="20%">DNA sequence
+  </th>
+  <td align="left">
+    <p class="DNA_seq">
+      <?php //echo $monobp_formated_str_table['1']; ?>
+      <?php echo str_replace(' ', '-', $monobp_formated_str_table['1']); ?>
+    </p>
+  </td>
+</tr>
+<tr>
+  <th width="20%">
+    <?php echo $mididata['1']['instrument_name']; ?>
+  </th>
+  <td align="left">
+    <p class="DNA_seq">
+      <?php echo $protein_note_str_table['1']; ?>
+    </p>
+  </td>
+</tr>
+</table>
+<?php
+}
+?>
+</div>
+<div class="boarderbox col-md-6">
+  <table class="box-table-a" summary="DNA reading frames">
+    <tr>
+      <th width="100%">Summary of 
+        <b>
+          <?php echo $_POST['DNAseq_name']; ?>
+        </b> properties
+      </th>
+    </tr>
+    <tr>
+      <td align="left" width="100%" class="smallFont">
+        <?php
+echo '<p>'.$text_strings['seq_length'].'<br>';
+echo $text_strings['GATC_content'].'<br>';
+echo $text_strings['gc_ratio'].'<br>';
+echo $text_strings['key_of_audio'];
+echo $text_strings['scale'].'<br>';
+//show_array($textCapture);
+$count = count($textCapture);
+echo 'This sequence was processed as <b>'.$count.'</b> reading frame(s).<br>';
+foreach($textCapture as $txt){
+echo 'This sequence was sonified as <b>'.$txt['0'].'</b> using the instrument <b>'.$txt['1'].'</b><br>';
+}  ?>
+    </p>
+    </td>
   </tr>
-
-  <tr>
-      <th width="20%">
-          <?php echo $mididata['1']['instrument_name']; ?>
+</table>
+<div class="boarderbox">
+  <table class="box-table-a" summary="DNA reading frames">
+    <tr>
+      <th width="20%">Nucleotide sequence (5'=>3')
       </th>
       <td align="left">
-          <p class="DNA_seq">
-              <?php echo $protein_note_str_table['1']; ?>
-          </p>
+        <p class="DNA_seq">
+          <?php echo str_replace('<br>', '', $text_strings['dna_seq']); ?>
+        </p>
       </td>
-  </tr>
+    </tr>
+  </table>
+  <?php
+if(! empty($motif_position1)){
+?>
+  <table class="box-table-a" summary="DNA reading frames">
+    <tr>
+      <th width="20%">Motifs
+      </th>
+      <td align="left">
+        <p class="DNA_seq">
+          <?php
+$txtM = '';
+foreach($motif2note as $motif){
+$txtM .= $motif['2'].' (<b>'.$motif['1'].'</b>), ';
+}
+echo $txtM;
+?>
+        </p>
+      </td>
+    </tr>
+  </table>
+  <table class="box-table-a" summary="DNA reading frames">
+    <tr>
+      <th width="20%">Summary of identified motifs
+      </th>
+      <td align="left">
+        <p class="DNA_seq">
+          <?php echo str_replace('-', '&#8209', $lastMotifStr); ?>
+        </p>
+      </td>
+    </tr>
+  </table>
+  <?php
+}else{
+?>
+  <table class="box-table-a" summary="DNA reading frames">
+    <tr>
+      <th width="20%">Summary of identified motifs
+      </th>
+      <td align="left">
+        <p class="DNA_seq">No Mofifs Found
+        </p>
+      </td>
+    </tr>
   </table>
   <?php
 }
 ?>
-  </div>
-
-
-<div class="boarderbox col-md-6">
-  <table class="box-table-a" summary="DNA reading frames">
-  <tr>
-    <th width="100%">Summary of <b><?php echo $_POST['DNAseq_name']; ?></b> properties</th>
-  </tr>
-  <tr>
-    <td align="left" width="100%" class="smallFont">
-    <?php
-    echo '<p>'.$text_strings['seq_length'].'<br>';
-    echo $text_strings['GATC_content'].'<br>';
-    echo $text_strings['gc_ratio'].'<br>';
-    echo $text_strings['key_of_audio'];
-    echo $text_strings['scale'].'<br>';
-    //show_array($textCapture);
-    $count = count($textCapture);
-    echo 'This sequence was processed as <b>'.$count.'</b> reading frame(s).<br>';
-    foreach($textCapture as $txt){
-    echo 'This sequence was sonified as <b>'.$txt['0'].'</b> using the instrument <b>'.$txt['1'].'</b><br>';
-    }  ?></p>
-    </td>
-  </tr>
-  </table>
-
-  <div class="boarderbox">
-  <table class="box-table-a" summary="DNA reading frames">
-  <tr>
-  <th width="20%">Nucleotide sequence (5'=>3')</th>
-  <td align="left">
-  <p class="DNA_seq">
-  <?php echo str_replace('<br>', '', $text_strings['dna_seq']); ?>
-  </p>
-  </td>
-  </tr>
-  </table>
-
-  <?php
-  if(! empty($motif_position1)){
-  ?>
-  <table class="box-table-a" summary="DNA reading frames">
-
-  <tr>
-  <th width="20%">Motifs</th>
-  <td align="left">
-  <p class="DNA_seq">
-  <?php
-  $txtM = '';
-  foreach($motif2note as $motif){
-  $txtM .= $motif['2'].' (<b>'.$motif['1'].'</b>), ';
-  }
-  echo $txtM;
-  ?>
-  </p>
-  </td>
-  </tr>
-  </table>
-
-  <table class="box-table-a" summary="DNA reading frames">
-
-  <tr>
-  <th width="20%">Summary of identified motifs</th>
-  <td align="left">
-  <p class="DNA_seq">
-  <?php echo str_replace('-', '&#8209', $lastMotifStr); ?>
-  </p>
-  </td>
-  </tr>
-  </table>
-  <?php
-  }else{
-  ?>
-  <table class="box-table-a" summary="DNA reading frames">
-  <tr>
-  <th width="20%">Summary of identified motifs</th>
-  <td align="left">
-  <p class="DNA_seq">No Mofifs Found
-  </p>
-  </td>
-  </tr>
-  </table>
-  <?php
-  }
-  ?>
 </div>
 </div>
 </div>
 </div>
-
-    <?php
+<?php
 }//end of if ok run page
+
 include("footer.php");
 ?>

@@ -132,7 +132,7 @@ actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgt
   <h3>Midi note numbers</h3>
   <p>The following table lists the numbers corresponding to notes for use in note on and note off commands in the MIDI file.</p>
 
-  <table class="box-table-a smallFont" summary="MIDI note numbers">
+  <table class="box-table-a" summary="MIDI note numbers">
   <tr>
   <th></th><th>C</th><th>C#</th><th>D</th><th>D#</th><th>E</th><th>F</th><th>F#</th><th>G</th><th>G#</th><th>A</th><th>A#</th><th>B</th>
   </tr>
@@ -148,7 +148,7 @@ actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgt
   <tr><th>8</th><td>96</td><td>97</td><td>98</td><td>99</td><td>100</td><td>101</td><td>102</td><td>103</td><td>104</td><td>105</td><td>106</td><td>107</td></tr>
   <tr><th>9</th><td>108</td><td>109</td><td>110</td><td>111</td><td>112</td><td>113</td><td>114</td><td>115</td><td>116</td><td>117</td><td>118</td><td>119</td></tr>
   <tr><th>10</th><td>120</td><td>121</td><td>222</td><td>123</td><td>124</td><td>125</td><td>126</td><td>127</td></td><td></td><td></td><td></td><td></tr>
-
+</span>
   </table>
 </div>
 <div class="boarderbox col-md-6">

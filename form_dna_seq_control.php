@@ -1,5 +1,8 @@
 <?php include("DNA_strings.php");?>
 
+
+
+
 <div class="container">
   <div class="row">
     <div class="boarderbox col-md-6">
@@ -38,46 +41,51 @@
   </div>
 </div>
 </div>
+
 <div class="container">
-  <div class="row">
-    <div class="boarderbox col-md-6">
-      <hr>
-      <h2 data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        <i class="fa fa-spinner fa-spin" style="font-size:24px">
-        </i> &nbsp;
-        <span class="textH2">Test DNA sequences
-          </h2> 
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body">
-            <?php
+	<div class="row">
+		<div class="boarderbox col-md-6">
+			<hr>
+				
+      <div class="container">
+      <div class="tog1" data-toggle="collapse" data-target="#collapseExample">
+		<span class="fas fa-chevron-down"></span>
+</div>
+	<span class="textH2">Test DNA sequences</span>
+	<div data-toggle="collapse" data-target="#collapseExample"></div>
+	<div class="collapse" id="collapseExample">
+		<div class="card card-body">
+			<?php
 foreach($DNA_strings as $v){
 $check = '';
 if(($v['0']  == $_POST['DNAseq_name']) and ($_POST['dnaseq_radio'] !== 'dnaseq_userInput')){
 $check = 'checked="checked"';
 }
 ?>
-            <div class="highlight">
-              <div class="radio_span">
-                <input name="dnaseq_radio" type="radio" value="<?php echo $v['0'].'|'.$v['1'].'|'.'Predefined';?>"
-                       <?php echo $check;?> />
-                <?php echo $v['0'];?>
-              </div>
-              <div class="DNA_seq">
-                <?php echo shorten($v['1'], $v['2'], 75);?>
-              </div>
-            </div>
-            <?php
+			<div class="highlight">
+				<div class="radio_span">
+					<input name="dnaseq_radio" type="radio" value="
+										
+						<?php echo $v['0'].'|'.$v['1'].'|'.'Predefined';?>"
+                       
+										
+						<?php echo $check;?> />
+						<?php echo $v['0'];?>
+					</div>
+					<div class="DNA_seq">
+						<?php echo shorten($v['1'], $v['2'], 75);?>
+					</div>
+				</div>
+				<?php
 }
 ?>
-          </div>
-        </div>
-        </div>
-      <div class="boarderbox col-md-6">
-        <?php include("rna_coding.php");?>
-      </div>
-    </div>
+			</div>
+		</div>
   </div>
-<div>
-
-
-
+</div>
+					<div class="boarderbox col-md-6">
+						<?php include("rna_coding.php");?>
+					</div>
+				</div>
+			</div>
+			<div>

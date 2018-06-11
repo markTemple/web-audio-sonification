@@ -770,6 +770,17 @@ async function playDnaAudio () {
 // window.addEventListener('error', (...args) => {
 //   console.log(args);
 // });
+function playUnlockNote () {
+  let oscillator = DNAaudioContext.createOscillator();
+  let DNAgain = DNAaudioContext.createGain();
+  DNAgain.gain.setValueAtTime(0.0001, 0);
+  oscillator.frequency.setValueAtTime(440, 0.01);
+
+  oscillator.connect(DNAgain);
+  DNAgain.connect(DNAaudioContext.destination);
+  oscillator.start(DNAaudioContext.currentTime);
+  oscillator.stop(DNAaudioContext.currentTime + 0.01);
+}
 
 window.addEventListener('load', () => {
   var suspendBtn = document.getElementById('suspend');
@@ -787,6 +798,9 @@ window.addEventListener('load', () => {
     playBtn.removeEventListener('click', playAudio);
     playBtn.addEventListener('click', resumeContext);
     playBtn.innerHTML = playBtn.innerHTML.replace('Play', 'Resume');
+    
+    playUnlockNote();
+
     playDnaAudio();
   }
   function suspendContext () {

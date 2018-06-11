@@ -49,19 +49,20 @@ h1 {
 
 h2 {
   color: var(--red);
-  text-align:center;
+  text-align:left;
   font-weight:normal;
   margin:10px 0px 10px 0px;
-  font-size: 1.7rem;
+  font-size: 1.6rem;
 
 }
 
 .textH2{
   color: var(--red);
-  text-align: left;
-  font-size:1.2rem;
+  font-size:1.3rem;
   /* text-transform: uppercase; */
-  margin:10px 0px 10px 0px;
+  text-align:left;
+  margin:10px 0px 10px 10px;
+  font-weight:normal;
 }
 
 h3 {
@@ -324,4 +325,20 @@ audio {
   font-size: 14px;
   padding-left:20px;
   content: 'less...';
+}
+
+[aria-expanded="false"] .menu__icon--open {
+    display: block;
+}
+
+[aria-expanded="false"] .menu__icon--close {
+    display: none;
+}
+
+[aria-expanded="true"] .menu__icon--open {
+    display: none;
+}
+
+[aria-expanded="true"] .menu__icon--close {
+    display: block;
 }

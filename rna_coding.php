@@ -52,14 +52,15 @@ unset($record_lines);
 ?>
 <hr>
 
-<div data-toggle="collapse" data-target="#collapseExample02" aria-expanded="false" aria-controls="collapseExample02">
-  <i class="fa fa-spinner fa-spin" style="font-size:24px">
-  </i> &nbsp;
-  <span class="textH2">Yeast rRNA sequences
-  </span> 
-  <div class="collapse" id="collapseExample02">
-    <div class="card card-body">
-      <?php
+<div class="container">
+	<div class="tog2" data-toggle="collapse" data-target="#collapseExample02">
+		<span class="fas fa-chevron-down"></span>
+</div>
+	<span class="textH2">Yeast rRNA sequences</span>
+	<div data-toggle="collapse" data-target="#collapseExample02"></div>
+	<div class="collapse" id="collapseExample02">
+		<div class="card card-body">
+			<?php
 foreach($record_lines_header as $k => $h){
 $short = shorten($record_lines_dna_seq["$k"], $record_lines_dna_seq["$k"], '90');//was 75 maybe make 2 columns or simple make 75 and hide all
 $check = '';
@@ -67,19 +68,22 @@ if(($h['0']  == $_POST['DNAseq_name']) and ($_POST['dnaseq_radio'] !== 'dnaseq_u
 $check = 'checked="checked"';
 }
 ?>
-      <div class="highlight">
-        <div class="radio_span">
-          <input name="dnaseq_radio" type="radio" value="<?php echo $h[0].'|'.$record_lines_dna_seq["$k"].'|'.'yeastdnaSeqs';?>" 
-                 <?php echo $check;?> />
-          <?php echo 	$h[0]; ?>
-        </div>
-        <div class="DNA_seq">
-          <?php echo $short;?>
-        </div>
-      </div>
-      <?php
+			<div class="highlight">
+				<div class="radio_span">
+					<input name="dnaseq_radio" type="radio" value="
+						<?php echo $h[0].'|'.$record_lines_dna_seq["$k"].'|'.'yeastdnaSeqs';?>" 
+                 
+						<?php echo $check;?> />
+						<?php echo 	$h[0]; ?>
+					</div>
+					<div class="DNA_seq">
+						<?php echo $short;?>
+					</div>
+				</div>
+				<?php
 }
 ?>
-    </div>
-  </div>
+			</div>
+		</div>
+	</div>
 </div>

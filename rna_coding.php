@@ -53,12 +53,7 @@ unset($record_lines);
 <hr>
 
 <div class="container">
-	<div class="tog2" data-toggle="collapse" data-target="#collapseExample02">
-		<span class="fas fa-chevron-down"></span>
-</div>
-	<span class="textH2">Yeast rRNA sequences</span>
-	<div data-toggle="collapse" data-target="#collapseExample02"></div>
-	<div class="collapse" id="collapseExample02">
+	<h2>Yeast rRNA sequences</h2>
 		<div class="card card-body">
 			<?php
 foreach($record_lines_header as $k => $h){
@@ -85,5 +80,4 @@ $check = 'checked="checked"';
 ?>
 			</div>
 		</div>
-	</div>
 </div>

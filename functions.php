@@ -342,16 +342,15 @@ function makeRadioBoxes($options, $selectOption, $default, $name){
 		if(isset($selectOption)){ // if option is selected then check (get re-posted)
 			if($value == $selectOption ){
 				$check = 'checked="checked"';
-				$bStart = '<b style="color:#C64521;">';
-				$bEnd = ' </b>';
+				$bStart = '<element class="radio_span">';
+				$bEnd = ' </element>';
 			}else{}
 		}
 		else{
 			if($value == $default){ // if not selected then use a default value
 				$check = 'checked="checked"';
-				$bStart = '<b style="color:#C64521;">';
-				$bEnd = ' </b>';
-			}else{}
+				$bStart = '<element class="radio_span">';
+				$bEnd = ' </element>';			}else{}
 		}
     echo'<div class="highlight">';
 		echo'<input type="'.$inputType.'" name="'.$name.'" value="'.$value.'" '.$check.' /> '.$bStart.$value_readable.$bEnd.' <br>';

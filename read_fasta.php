@@ -290,24 +290,26 @@ $text_strings = makeTextstrings($dna_seq);
     <div class="col-md-1">
     </div>
     <div class="boarderbox col-md-10">
+      <h1>Play sonified DNA</h1><hr>
+
       <form action="./read_fasta.php" method="post" >
         <?php include("form_audio_control.php"); ?>
         <input name="dna_seq" type="hidden" value="<?php echo $dna_seq ;?>" />
         <input name="DNAseq_name" type="hidden" value="<?php echo $_POST['DNAseq_name']; ?>" />
         <input name="yeastdnaSeqs_or_Predefined" type="hidden" value="<?php echo $yeastdnaSeqs_or_Predefined ;?>" />
-        <button type="submit" class="btn" onClick="javascript: form.action='index.php';" />
+        <button type="submit" class="btn btn-secondary" onClick="javascript: form.action='index.php';" />
         <i class="fas fa-dna">
-        </i>
+        </i> Select another DNA sequence
         </button>
       <canvas id="dnapaper" width="500px" height="200px">
       </canvas>
       <div class="btn-group btn-sm">
-        <button type="button" class="btn" id="play" />
+        <button type="button" class="btn btn-primary" id="play" />
         <i class="fas fa-play">
         </i>
         Play
         </button>
-      <button type="button" class="btn" id="suspend" />
+      <button type="button" class="btn btn-primary" id="suspend" />
       <i class="fas fa-pause">
       </i>
       Pause
@@ -333,11 +335,12 @@ echo '</script>';
 </div>
 </div>
 <hr>
+
 <div class="container">
   <div class="row">
-    <div class="boarderbox col-md-6">
-      <h2>Summary of sonified audio
-      </h2>
+    <div class="boarderbox col-md-12">
+      <h3>Summary of sonified audio
+      </h3>
       <?php
 $rf_numb_count = array(1, 2, 3);
 $pair_count = array(1, 2);
@@ -534,7 +537,10 @@ $textCapture[] =array('"Mono-nucleotide sequence"', $mididata['1']['instrument_n
 }
 ?>
 </div>
-<div class="boarderbox col-md-6">
+
+<div class="container">
+  <div class="row">
+    <div class="boarderbox col-md-12">
   <table class="box-table-a" summary="DNA reading frames">
     <tr>
       <th width="100%">Summary of 
@@ -544,25 +550,30 @@ $textCapture[] =array('"Mono-nucleotide sequence"', $mididata['1']['instrument_n
       </th>
     </tr>
     <tr>
-      <td align="left" width="100%" class="smallFont">
+      <td align="left" width="100%">
         <?php
-echo '<p>'.$text_strings['seq_length'].'<br>';
-echo $text_strings['GATC_content'].'<br>';
-echo $text_strings['gc_ratio'].'<br>';
+echo '<p>'.$text_strings['seq_length'];
+echo $text_strings['GATC_content'];
+echo $text_strings['gc_ratio'];
 echo $text_strings['key_of_audio'];
-echo $text_strings['scale'].'<br>';
+echo $text_strings['scale'];
 //show_array($textCapture);
 $count = count($textCapture);
-echo 'This sequence was processed as <b>'.$count.'</b> reading frame(s).<br>';
+echo 'This sequence was processed as <b>'.$count.'</b> reading frame(s).<br>'.'This sequence was sonified as; <br>';
 foreach($textCapture as $txt){
-echo 'This sequence was sonified as <b>'.$txt['0'].'</b> using the instrument <b>'.$txt['1'].'</b><br>';
+echo '<b>'.$txt['0'].'</b> using the instrument <b>'.$txt['1'].'</b><br>';
 }  ?>
     </p>
     </td>
   </tr>
 </table>
-<div class="boarderbox">
-  <table class="box-table-a" summary="DNA reading frames">
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="boarderbox col-md-12">  
+      <table class="box-table-a" summary="DNA reading frames">
     <tr>
       <th width="20%">Nucleotide sequence (5'=>3')
       </th>
@@ -619,13 +630,10 @@ echo $txtM;
   </table>
   <?php
 }
+}//end of if ok run page
 ?>
 </div>
 </div>
-</div>
-</div>
 <?php
-}//end of if ok run page
-
 include("footer.php");
 ?>

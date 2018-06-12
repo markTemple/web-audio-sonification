@@ -4,10 +4,11 @@ include("./arrays.php");
 include("sonify.java");
 //include("help_menu.php");
 ?>
-<div class="container">
+<div class="container boarderbox">
+<h1>Introduction</h1><hr>
+
   <div class="row">
-  <div class="boarderbox col-md-6">
-<h2>Introduction</h2>
+  <div class="col-md-6">
 
 <p>
 DNA Sonification refers to the use of audio to convey the information content of DNA sequence data. It provides an interesting adjunct to standard visualization of DNA sequence data. To achieve this the 4 bases (namely G, A, T and C) that make up the DNA sequence are processed from left to right in a linear fashion. To achieve this a dynamic web tool has been created in which DNA sequences are processed to produce audio output.</p>
@@ -50,7 +51,7 @@ DNA Sonification refers to the use of audio to convey the information content of
 </table>
 
 </div>
-<div class="boarderbox col-md-6">
+<div class="col-md-6">
 
 <p><a href="help_algorithms.php">Six DNA sonification algorithms</a> have been scripted to associate a DNA motif to a specific motif identifier. Each of these are further processed to produce a distinct mix of instrument and note identifiers to be assigned to musical notes. The motif identifiers are  numbered from 1-4, 1-16 or 1-64 depending on the  algorithm. These motif identifiers are further processed using additional parameters to establish a musical key, notes intervals, note length, note timing and tempo. These are then assigned to an octave suitable for the selected instrument. All audio is generated dynamically and the audio output is streamed in real time. </p>
 
@@ -78,7 +79,15 @@ actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgtggcaaaggtgcccttgaggt
 and coding region of the beta globin gene.</p>
 
 </div>
-<div class="boarderbox col-md-6">
+</div>
+</div>
+
+
+
+<div class="container boarderbox">
+  <div class="row">
+
+<div class="col-md-6">
 
 
 <table class="box-table-a" summary="DNA sequence detail">
@@ -151,7 +160,7 @@ actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgt
 </span>
   </table>
 </div>
-<div class="boarderbox col-md-6">
+<div class="col-md-6">
 
 <h3>Codons usage table</h3>
 <table class="box-table-a" summary="MIDI note numbers" width="600px" >

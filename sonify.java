@@ -53,23 +53,4 @@ function applyCascadingDropdowns() {
 window.onload=applyCascadingDropdowns;
 //Applies cascading behavior for the specified dropdowns
 
-$(document).ready(function(){
-  $("#collapseExample").on("hide.bs.collapse", function(){
-    $(".tog1").html('<span class="fas fa-chevron-down"></span>');
-  });
-  $("#collapseExample").on("show.bs.collapse", function(){
-    $(".tog1").html('<span class="fas fa-chevron-up"></span>');
-  });
-});
-
-$(document).ready(function(){
-  $("#collapseExample02").on("hide.bs.collapse", function(){
-    $(".tog2").html('<span class="fas fa-chevron-down"></span>');
-  });
-  $("#collapseExample02").on("show.bs.collapse", function(){
-    $(".tog2").html('<span class="fas fa-chevron-up"></span>');
-  });
-});
-
-
 </SCRIPT>

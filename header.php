@@ -52,6 +52,4 @@
 
 <main role="main" class="container">
 		<!-- <div class='margin'> -->
-	<!-- <h1>
-		An auditory display tool for DNA sequence analysis
-	</h1> -->
+

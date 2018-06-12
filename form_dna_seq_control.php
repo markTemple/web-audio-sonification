@@ -3,89 +3,70 @@
 
 
 
-<div class="container">
-  <div class="row">
-    <div class="boarderbox col-md-6">
-      <hr>  
-      <h2>Make random sequence
-      </h2>
+<div class="container boarderbox">
+  <h2>
+  Select one DNA sequences
+  </h2>
+  <div class="col-md-12">
+    <h3> Default DNA sequences</h3>
+    <div class="card card-body">
       <div style="display:<?php echo $display_makerandom;?>;">
         <div class="highlight">
-          <input name="dnaseq_radio" type="radio" value="makerandom" 
-                 <?php echo "$check2";?>/> 
-          <span>Make random sequence
+          <input name="dnaseq_radio" type="radio" value="makerandom" <?php echo "$check2";?>/> 
+          <span class="radioText_DNA">
+            A random DNA sequence
           </span>
         </div>
       </div>
-      <input name="numbCodons" type="text" value="64" maxlength="2"/>
+    <input name="numbCodons" type="hidden" value="99" maxlength="2"/>
     </div>
-    <div class="boarderbox col-md-6">
-      <hr>
-      <h2>Enter a DNA sequence
-      </h2>
+  </div>
+
+  <div class="col-md-12">
+    <h3> User DNA sequences</h3>
+    <div class="card card-body">
       <div name="Paste DNA" style="display:<?php echo $display_dnaseq_userInput;?>;">
-      </div>
-      <div class="highlight">
-        <input name="dnaseq_radio" type="radio" value="dnaseq_userInput" 
-               <?php echo "$check1";?>/>
-        <span>Enter DNA seq 5'=>3'
-        </span>
-      </div>
-      <div>
-        <input name="DNAseq_name" type="text" value="<?php echo $form_val_DNAseq_name;?>" size="22" maxlength="100"/>
-        <textarea name="dnaseq_userInput">
-          <?php echo $form_val_dna_seq;?>
-        </textarea>
+        <div class="highlight">
+          <input name="dnaseq_radio" type="radio" value="dnaseq_userInput" <?php echo "$check1";?>/>
+          <span class="radioText_DNA">
+            Enter your own DNA sequence
+          </span>
+        </div>
+        <input name="DNAseq_name" type="hidden" value="<?php echo $form_val_DNAseq_name;?>" size="22" maxlength="100"/>
+        <textarea name="dnaseq_userInput"><?php echo trim($form_val_dna_seq);?></textarea>
       </div>
     </div>
   </div>
-</div>
-</div>
 
-<div class="container">
-	<div class="row">
-		<div class="boarderbox col-md-6">
-			<hr>
-				
-      <div class="container">
-      <div class="tog1" data-toggle="collapse" data-target="#collapseExample">
-		<span class="fas fa-chevron-down"></span>
-</div>
-	<span class="textH2">Test DNA sequences</span>
-	<div data-toggle="collapse" data-target="#collapseExample"></div>
-	<div class="collapse" id="collapseExample">
+	<div class="col-md-12">
+  <h3>Pre-defined DNA sequences</h3>
 		<div class="card card-body">
-			<?php
-foreach($DNA_strings as $v){
-$check = '';
-if(($v['0']  == $_POST['DNAseq_name']) and ($_POST['dnaseq_radio'] !== 'dnaseq_userInput')){
-$check = 'checked="checked"';
-}
-?>
+    <?php
+    foreach($DNA_strings as $v){
+    $check = '';
+    if(($v['0']  == $_POST['DNAseq_name']) and ($_POST['dnaseq_radio'] !== 'dnaseq_userInput')){
+    $check = 'checked="checked"';
+    }
+    ?>
 			<div class="highlight">
 				<div class="radio_span">
 					<input name="dnaseq_radio" type="radio" value="
-										
-						<?php echo $v['0'].'|'.$v['1'].'|'.'Predefined';?>"
-                       
-										
-						<?php echo $check;?> />
-						<?php echo $v['0'];?>
-					</div>
-					<div class="DNA_seq">
-						<?php echo shorten($v['1'], $v['2'], 75);?>
-					</div>
-				</div>
-				<?php
+          <?php echo $v['0'].'|'.$v['1'].'|'.'Predefined';?>"
+          <?php echo $check;?> />
+          <?php echo $v['0'];?>
+        </div>
+      <div class="DNA_seq">
+      <?php echo shorten($v['1'], $v['2'], 100);?>
+    </div>
+  </div>
+  <?php
 }
 ?>
-			</div>
-		</div>
+</div>
+    </div>
+					<!-- <div class="boarderbox col-md-6">
+						<?php //include("rna_coding.php");?>
+					</div> -->
   </div>
 </div>
-					<div class="boarderbox col-md-6">
-						<?php include("rna_coding.php");?>
-					</div>
-				</div>
-			</div>
-			<div>
+<div>

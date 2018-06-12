@@ -19,13 +19,13 @@ if(!empty($_POST['dnaseq_radio'])){
 	$form_val_dna_seq = $_POST['dna_seq'];
 	}
 	else{
-	$form_val_DNAseq_name = 'Sequence_name';
+	$form_val_DNAseq_name = 'User_input_DNA';
 	$form_val_dna_seq = 'GGGAAAGGGAAATTTCCCGGGAAAGGGAAATTTCCCGGGAAAGGGAAATTTCCCGGGAAAGGGAAATTTCCCGG';
 	$check2 = 'checked="checked"'; // set defalt radio to random
 	//fix for Notice: Undefined variable errors in form_audio_control.php
 	$postdata['frameNum'] = '3';
 	$postdata['stopstart'] = 'strict';
-	$postdata['sonify_motif'] = 'no';
+	$postdata['sonify_motif'] = 'yes';
 	$_POST['DNAseq_name'] = '';
 	$_POST['dnaseq_radio'] = '';
 	$_POST['yeastdnaSeqs_or_Predefined'] = '';
@@ -35,32 +35,25 @@ if(!empty($_POST['dnaseq_radio'])){
 <h2>An auditory display tool for DNA sequence analysis</h2>
 </div> -->
 
-<div class="container">
+<div class="container boarderbox">
+<h1>An auditory display tool for DNA sequence analysis</h1><hr>
   <div class="row">
-    <div class="boarderbox col-md-6">
-      <h2>Sonification Algorithm
-      </h2>
+    <div class="col-md-6">
+    <h2>Select an algorithm</h2>
+      <div class="card card-body">
+
       <form action="./read_fasta.php" method="post" >
-        <?php include("form_audio_control.php"); ?>
-        <span>
-          <div class="row w-100">
-            <div class="col-9">
-              <?php 	$frameNum = make_frameNum();
+      <?php include("form_audio_control.php"); ?>
+      <span>
+      <?php 	$frameNum = make_frameNum();
 //makeSelectBox
-makeRadioBoxes($frameNum, $postdata['frameNum'], '3', 'frameNum', 'frameNum_id', 'Algorithm: ');?>
-              </span>
-          </div>
-          <div class="col-3">
-            <span>
-              <button type="submit" class="btn-primary btn"/>Sonify
-              </button>
-            </span>
-          </div>
-        </div>
+      makeRadioBoxes($frameNum, $postdata['frameNum'], '3', 'frameNum', 'frameNum_id', 'Algorithm: ');?>
+      </span>
+      </div>
     </div>
-    <div class="boarderbox col-md-6">
-      <h2>Start/Stop codons
-      </h2>
+    <div class="col-md-6">
+      <h3>Further options</h3>
+      <div class="card card-body">
       <span>
         <?php 	$stopstart = make_stopstart();
 makeRadioBoxes($stopstart, $postdata['stopstart'], 'strict', 'stopstart', 'stopstart_id', 'Select: ');
@@ -75,17 +68,16 @@ makeRadioBoxes($sonify_motif, $postdata['sonify_motif'], 'no', 'sonify_motif', '
           </span>
         </div>
         <div class="col-8">
-          <p class="help_text boarderbox p2">Play START with Snare drum and STOP with Crash Cymbal
+          <p class="p2">Play START with Snare drum and STOP with Crash Cymbal
           </p>
         </div>
-      </div>
+        </div>
+        </div>
     </div>
   </div>
-</div>
-</div>
-<div class="container">
+
   <div class="row">
-    <div class="boarderbox col-md-6">
+    <div class="col-md-6">
       <div id="summary" class="help_text">
         <p class="collapse" id="collapseSummary01">
           The Reading-frame-codons algorithm sonifys each overlapping codon (made up of 3 base) as a single note. Codons in 3 reading frames are sonified using 3 instruments. A 
@@ -99,10 +91,10 @@ makeRadioBoxes($sonify_motif, $postdata['sonify_motif'], 'no', 'sonify_motif', '
         </a>
       </div>
     </div>
-    <div class="boarderbox col-md-6">
+    <div class="col-md-6">
       <div id="summary" class="help_text">
         <p class="collapse" id="collapseSummary02">
-          All options only apply to the 
+          Options only apply to the 
           <b>Reading-frame-codons
           </b> selection. 
           <br>
@@ -114,6 +106,25 @@ makeRadioBoxes($sonify_motif, $postdata['sonify_motif'], 'no', 'sonify_motif', '
       </div>
     </div>
   </div>  
+</div>
+</div>
+
+<div class="container boarderbox">
+  <div class="row">
+      <div class="col-12">
+        <p>
+        <button type="submit" class="btn-primary btn"/>
+        <i class="fas fa-volume-up"></i> Sonify
+        </button>
+        </p>
+      </div>
+      <div class="col-12">
+        <p>
+        Apply the Sonification Algorithm above to the chosen DNA sequence below. This will create an auditory display so that you can hear the sequence.
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <?php include("form_dna_seq_control.php"); ?>

@@ -1,11 +1,11 @@
 <?php include("header.php");
 include("sonify.java");
 ?>
-<div class="container">
-  <div class="row">
-  <div class="boarderbox col-md-6">
+<div class="container boarderbox">
+<h1>Links to useful websites</h1><hr>
 
-    	<h2>Links to useful websites</h2>
+  <div class="row">
+  <div class="col-md-6">
   		<p>The
   		<a href="http://www.phpclasses.org/browse/package/1362.html#description"
   		title="link to midi class"
@@ -46,7 +46,7 @@ include("sonify.java");
       </p>
   	</div>
 
-    <div class="boarderbox col-md-6">
+    <div class="col-md-6">
   		<p><a href="http://www.wired.com/culture/lifestyle/news/2001/03/42306"
   		title="link to DNA the Way to San Jose?"
   		target="_self">

@@ -1,9 +1,25 @@
 let AudioContext = window.AudioContext || window.webkitAudioContext;
 let DNAaudioContext = new AudioContext();
+var canvas = document.getElementById('dnapaper');
+var c = canvas.getContext('2d');
+
+function preDraw () {
+  let x1 = 90 + 160 * 0;
+  let x2 = 90 + 160 * 1;
+  let x3 = 90 + 160 * 2;
+  c.fillStyle = '#F2F0E6';
+  c.fillRect(0, 0, canvas.width, canvas.height);
+  
+  c.beginPath();
+  c.arc(x1, 80, 70, 0, 2 * Math.PI);
+  c.arc(x2, 80, 70, 0, 2 * Math.PI);
+  c.arc(x3, 80, 70, 0, 2 * Math.PI);
+  c.fillStyle = '#E7DBBD';
+  c.fill();
+}
+preDraw();
 
 async function playDnaAudio () {
-  var canvas = document.getElementById('dnapaper');
-  var c = canvas.getContext('2d');
   const animationQueue = [];
 
   /* eslint-disable no-undef camelcase */

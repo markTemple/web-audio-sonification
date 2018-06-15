@@ -40,13 +40,13 @@ async function playDnaAudio () {
     const folders = [
       './acoustic_grand_piano-mp3/',
       './electric_guitar_muted-mp3/',
-      './tubular_bells-mp3/'
+      './woodblock-mp3/'
       // ,'../WebAudio/SonificationAudio/startstop_mp3/'
     ];
     const instruments = [
       'Grand Piano',
       'Muted Guitar ',
-      'Tubular Bells'
+      'Woodblock'
       // ,'../WebAudio/SonificationAudio/startstop_mp3/'
     ];
     return { f: folders, inst: instruments };
@@ -430,6 +430,18 @@ async function playDnaAudio () {
       if (PHP_vars.frameNum === '3') {
         noteNumber = codonToNoteNumber(dnaMotif);
         Unique_notes = [
+          'C2.mp3',
+          'Eb2.mp3',
+          'F2.mp3',
+          'Gb2.mp3',
+          'G2.mp3',
+          'Bb2.mp3',
+          'C3.mp3',
+          'Eb3.mp3',
+          'F3.mp3',
+          'Gb3.mp3',
+          'G3.mp3',
+          'Bb3.mp3',
           'C4.mp3',
           'Eb4.mp3',
           'F4.mp3',
@@ -439,18 +451,6 @@ async function playDnaAudio () {
           'C5.mp3',
           'Eb5.mp3',
           'F5.mp3',
-          'Gb5.mp3',
-          'G5.mp3',
-          'Bb5.mp3',
-          'C6.mp3',
-          'Eb6.mp3',
-          'F6.mp3',
-          'Gb6.mp3',
-          'G6.mp3',
-          'Bb6.mp3',
-          'C7.mp3',
-          'Eb7.mp3',
-          'F7.mp3',
           'stop.mp3',
           'start.mp3'
         ];
@@ -484,6 +484,24 @@ async function playDnaAudio () {
       } else if (PHP_vars.frameNum === '3bp') {
         noteNumber = bp3ToNoteNumber(dnaMotif);
         Unique_notes = [
+          'A0.mp3',
+          'Bb0.mp3',
+          'B0.mp3',
+          'A1.mp3',
+          'Bb1.mp3',
+          'B1.mp3',
+          'C1.mp3',
+          'Db1.mp3',
+          'D1.mp3',
+          'Eb1.mp3',
+          'E1.mp3',
+          'F1.mp3',
+          'Gb1.mp3',
+          'G1.mp3',
+          'Ab2.mp3',
+          'A2.mp3',
+          'Bb2.mp3',
+          'B2.mp3',
           'C2.mp3',
           'Db2.mp3',
           'D2.mp3',
@@ -533,25 +551,7 @@ async function playDnaAudio () {
           'Bb6.mp3',
           'B6.mp3',
           'C6.mp3',
-          'Db6.mp3',
-          'D6.mp3',
-          'Eb6.mp3',
-          'E6.mp3',
-          'F6.mp3',
-          'Gb6.mp3',
-          'G6.mp3',
-          'Ab7.mp3',
-          'A7.mp3',
-          'Bb7.mp3',
-          'B7.mp3',
-          'C7.mp3',
-          'Db7.mp3',
-          'D7.mp3',
-          'Eb7.mp3',
-          'E7.mp3',
-          'F7.mp3',
-          'Gb7.mp3',
-          'G7.mp3'
+          'Db6.mp3'/* last note*/
         ];
       } else if (PHP_vars.frameNum === '2bp' || PHP_vars.frameNum === '2bpx2') {
         noteNumber = bp2ToNoteNumber(dnaMotif);
@@ -644,6 +644,7 @@ async function playDnaAudio () {
   async function playMP3notes (ObjFromtoMP3) {
     var startOfDNA_audio = '';
     loadedAudioFiles = await callmakeMP3notes(ObjFromtoMP3);
+    stopSpin();
     var key = 0;
     // console.log('loadedAudioFiles', loadedAudioFiles)
     // ObjFromtoMP3.timeNoteNumber.forEach(function(time_note , key) {
@@ -773,7 +774,9 @@ async function playDnaAudio () {
   var motifsForAudio = multiToSingle_array(data);
   // console.log('motifsForAudio', motifsForAudio);
   var Mp3_OrderToPlayArr = toMP3(motifsForAudio);
-  // console.dir(Mp3_OrderToPlayArr);
+  
+  console.log(Mp3_OrderToPlayArr);
+  
   var audio = await playMP3notes(Mp3_OrderToPlayArr);
   // console.log(audio);
   // console.log(PHP_vars.sonify_motif)
@@ -782,6 +785,16 @@ async function playDnaAudio () {
   syncThis();
 
 }; // end window.onload
+
+function startSpin(){
+  document.getElementById("spin").innerHTML = '<span class="textSpin"><i class="fa fa-spinner fa-spin fa-4x fa-fw"></i></span>';
+  document.getElementById("spin").style.display = "block";
+}
+
+function stopSpin(){
+  document.getElementById("spin").innerHTML = "";
+  document.getElementById("spin").style.display = "none";
+}
 
 // window.addEventListener('error', (...args) => {
 //   console.log(args);
@@ -815,8 +828,8 @@ window.addEventListener('load', () => {
     playBtn.addEventListener('click', resumeContext);
     playBtn.innerHTML = playBtn.innerHTML.replace('Play', 'Resume');
     
+    startSpin();
     playUnlockNote();
-
     playDnaAudio();
   }
   function suspendContext () {

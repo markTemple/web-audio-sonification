@@ -27,3 +27,4 @@
         <input name="frameNum" type="hidden" value="<?php echo $_POST['frameNum']?>" />
         <input name="stopstart" type="hidden" value="<?php echo $_POST['stopstart']?>" />
         <input name="sonify_motif" type="hidden" value="<?php echo $_POST['sonify_motif']?>" />
+        <input name="numbCodons" type="hidden" value="<?php echo $_POST['numbCodons']?>" />

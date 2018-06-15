@@ -6,14 +6,15 @@
   --monospace: 'Roboto Mono', monospace;
   --serif: 'Gentium Basic', serif;
   --icons: 'Material Icons';
-  --red: #C64521;
+  --red: rgb(165, 57, 27);
   --light: #f8f9fa;
   --gray: #6c757d;
   --dark: #343a40;
   --primary: #0057b4;
-  --highlight: #f3d1d1;
+  --highlight: rgb(231, 224, 209);
   --boarder: #B7AD99;
-  --pale: #F5F5F5;
+  --pale: rgb(233, 233, 233);
+  --darkblue:#00356e;
 }
 
 *, *:before, *:after {
@@ -41,30 +42,34 @@ body {
   max-width: 1200px;
 }
 
+nav {
+  margin: auto; /*T R B L*/
+  text-transform: uppercase;
+}
+
 h1 {
   /* color: var(--dark); */
   text-align:center;
   text-transform: uppercase;
   font-size: 1.5rem;
-  color: var(--red);
-
+  color: var(--dark);
 }
 
 h2 {
   /* color: var(--dark); */
-  text-align:left;
+  text-align:center;
   font-weight:normal;
-  margin:10px 0px 10px 0px;
-  font-size: 1.4rem;
-
+  margin:5px;
+  font-size: 1.3rem;
+  color: var(--red);
 }
 
 h3 {
   color: var(--gray);
-  text-align:left;
+  text-align:center;
   font-weight:normal;
-  font-size: 1.2rem;
-  padding: 10px 0px 0px 20px;
+  font-size: 1.3rem;
+  margin:5px;
 }
 
 h4 {
@@ -75,9 +80,22 @@ h4 {
 }
 
 .card{
-  margin: 5px 0px;
-  border-radius: 20px;
+  /* margin: 5px 0px; */
+  border-radius: 10px;
   background: var(--light);
+  margin: 5px 0px 5px 0px;
+}
+
+.red{
+  color: var(--red);
+}
+
+.dark{
+  color: var(--gray);
+}
+
+.blue{
+  color: var(--primary);
 }
 
 br{
@@ -86,6 +104,7 @@ br{
 
 b{
   color: var(--red);
+  font-weight:normal;
 }
 
 a{
@@ -93,11 +112,11 @@ a{
 }
 
 .boarderbox{
-  border:2px solid var(--boarder);
+  border:1px solid var(--boarder);
   background: var(--pale);
   border-radius: 20px;
   padding: 20px;
-  margin: 5px 0px 0px 0px;
+  margin: 5px 0px 5px 0px;
 }
 
 .margin{
@@ -116,13 +135,13 @@ canvas {
 }
 
 label{ /* eg text to left of dropdown box*/
-  float: left;
-  width: 100px;
+  /* float: left;
+  width: 100px; */
   /* font-weight: bold; */
-  line-height: 2;
+  /* line-height: 2; */
 }
 /*enter DNA seq box and radio button size*/
-/* input{ 
+/* input{
   padding:  5px 5px 5px 5px;
   font-size: 0.8em;
   background: var(--pale);
@@ -162,14 +181,39 @@ textarea:hover{
   color:var(--primary);
 }
 .highlight{
+  background: var(--pale);
+  border:1px solid var(--highlight);
+  border-radius: 10px;
+  padding: 0px 5px 0px 5px;
+
 }
 .highlight:hover{
   background: var(--highlight);
+  border-radius: 10px;
+  padding: 0px 5px 0px 5px;
+  color:var(--red);
+
 }
 .DNA_seq{
   width: 100%;
   font-family: var(--monospace);
   font-size:0.8em;
+  overflow-wrap: break-word;
+  /* word-wrap: break-word; */
+  margin: 0px 0px 0px 0px; /*T R B L*/
+  padding: 0px 5px 0px 5px;
+  text-align:left;
+}
+.DNA_seq:hover{
+  background: var(--highlight);
+  border-radius: 10px;
+  padding: 0px 5px 0px 5px;
+}
+
+.DNA_seqBIG{
+  width: 100%;
+  font-family: var(--monospace);
+  font-size:1em;
   overflow-wrap: break-word;
   /* word-wrap: break-word; */
   margin: 0px 0px 0px 0px; /*T R B L*/
@@ -238,9 +282,11 @@ ul {
 }
 
 audio {
-  border:1px solid var(--highlight);
+  /* border:1px solid var(--dark); */
   margin: 0 auto;
   display: table;
+  padding: 0px;
+  /* border-radius: 30px; */
 }
 
 .width80{
@@ -249,7 +295,7 @@ audio {
 }
 
 .box-table-a {
-  text-align: center;
+  /* text-align: center; */
   margin: auto; /*make table center in firefox*/
   width:100%;
   table-layout: fixed;
@@ -257,25 +303,27 @@ audio {
 .box-table-a th {
   text-align: center;
   padding: 10px 4px 10px 4px; /*T R B L*/
-  background:var(--gray);
-  color: var(--highlight);
-  border-top: 1px solid var(--highlight);
+  background:var(--pale);
+  color: var(--dark);
+  border: 1px solid var(--highlight);
   font-size: 0.8em;
-  text-transform: uppercase;
-
+  font-weight:normal;
 }
 .box-table-a td {
   /* font-family: var(--monospace); */
-  padding: 2px;
+  padding: 10px 4px 10px 2px; /*T R B L*/
   background: var(--light);
   border: 1px solid var(--highlight);
+  /* font-size: 0.7em; */
+  overflow: hidden;
 }
 
 .box-table-a tr:hover td {
-  background: var(--pale);
-  color:var(--gray);
-  word-wrap:break-word;
-  border: 1px solid var(--highlight);
+  background: var(--highlight);
+}
+
+.box-table-a th:hover {
+  background: var(--highlight);
 }
 
 /* And set the max-width of the parent element */
@@ -315,10 +363,10 @@ audio {
 #summary p.collapse:not(.show) {
     height: 42px !important;
     overflow: hidden;
-  
+
     display: -webkit-box;
     -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;  
+    -webkit-box-orient: vertical;
 }
 
 #summary p.collapsing {
@@ -337,18 +385,26 @@ audio {
   content: 'less...';
 }
 
-/* [aria-expanded="false"] .menu__icon--open {
-    display: block;
+.overlaySpin {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
 }
 
-[aria-expanded="false"] .menu__icon--close {
-    display: none;
+.textSpin{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--red);
+  font-size: 3rem;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
 }
-
-[aria-expanded="true"] .menu__icon--open {
-    display: none;
-}
-
-[aria-expanded="true"] .menu__icon--close {
-    display: block;
-} */

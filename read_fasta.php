@@ -154,6 +154,10 @@ if(! empty($motif_position1)) {
 $codon2note = makeCodon2note($mididata, $seq2note_algorithm, $numb_of_RFs);
 $codon_plus_array = makeCodonPlus($codon, $codon2note);
 
+ //show_array($codon2note);
+ //show_array($codon_plus_array);
+
+
 unset($codon);
 unset($codon2note);
 
@@ -164,6 +168,7 @@ $codon_plus_array2 = ($codon_plus_array + $motif_position);
 }else{
 $codon_plus_array2 = $codon_plus_array;
 }
+//show_array($codon_plus_array2);
 
 unset($codon_plus_array);
 include("make_frame_note_data.php");
@@ -285,21 +290,24 @@ $text_strings = makeTextstrings($dna_seq);
 // (base64_encode(file_get_contents("./midi_class_v175/tmp/testMIDI{$blah}.mid" )));
 
 ?>
+<div id="spin" class="overlaySpin">
+
+</div>
+
+
 <div class="container">
   <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
     </div>
-    <div class="boarderbox col-md-10">
-      <h1>Play sonified DNA</h1><hr>
-
+    <div class="boarderbox col-md-8">
+      <h1><?php echo $_POST['DNAseq_name']; ?></h1><hr>
       <form action="./read_fasta.php" method="post" >
         <?php include("form_audio_control.php"); ?>
         <input name="dna_seq" type="hidden" value="<?php echo $dna_seq ;?>" />
         <input name="DNAseq_name" type="hidden" value="<?php echo $_POST['DNAseq_name']; ?>" />
         <input name="yeastdnaSeqs_or_Predefined" type="hidden" value="<?php echo $yeastdnaSeqs_or_Predefined ;?>" />
         <button type="submit" class="btn btn-secondary" onClick="javascript: form.action='index.php';" />
-        <i class="fas fa-dna">
-        </i> Select another DNA sequence
+        Re-sonify <i class="fas fa-dna"></i> sequence
         </button>
       <canvas id="dnapaper" width="500px" height="200px">
       </canvas>
@@ -314,9 +322,17 @@ $text_strings = makeTextstrings($dna_seq);
       </i>
       Pause
       </button>
-  </div>
-  </form>
+      </div>
+      </form>
+        <div class="card card-body">
+          <p>The mapping of each codon or motif in the auditory display is represented in this animation and in the tables below. The RE-SONIFY button will pass the same sequence back to the previous page where the algorithm properties can be changed. Each circle represents a reading frame and shows the mapping of the DNA sequence to audio notes.<br>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+    </div>
 </div>
+<hr>
 <?php
 echo '<script>';
 echo 'var stopstart = ' . json_encode($postdata['stopstart']) . ';';
@@ -329,12 +345,7 @@ echo '</script>';
 <script src="./spinnyDNA.js">
 </script>
 <?php  //include("./JZZ_PlayMidiFile.php"); ?>
-<div class="col-md-1">
-</div>
-</div>
-</div>
-</div>
-<hr>
+
 
 <div class="container">
   <div class="row">
@@ -610,6 +621,9 @@ echo $txtM;
       </th>
       <td align="left">
         <p class="DNA_seq">
+          <?php $lastMotifStr = str_replace('T', '<b>T</b>', $lastMotifStr); ?>
+          <?php $lastMotifStr = str_replace('A', '<b>A</b>', $lastMotifStr); ?>
+          <?php $lastMotifStr = str_replace('G', '<b>G</b>', $lastMotifStr); ?>
           <?php echo str_replace('-', '&#8209', $lastMotifStr); ?>
         </p>
       </td>

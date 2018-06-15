@@ -92,15 +92,26 @@ and coding region of the beta globin gene.</p>
 
 <table class="box-table-a" summary="DNA sequence detail">
 <tr>
-	<th>Consider the first 60 individual bases of this sequence:</th>
+	<th>Consider the beginning of this sequence:</th>
 </tr>
 <tr>
 	<td><p class="DNA_seq">
-actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgt
+actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgt</p>
 </td>
 </tr>
 </table>
-<p>In a biological context, the information content of this can be read in one of three reading frames according to the rules of the genetic code, whereby three nucleotide bases code for a specific amino acid residue in a protein.</p>
+<p>In a biological context, the information content of this can be read in one of three reading frames according to the rules of the genetic code, whereby three nucleotide bases code for a specific amino acid residue in a protein.
+So this single sequence can be written and processed in three ways.</p>
+
+<p> Frame 1: <span class="DNA_seqBIG red">act<b>-</b>cac<b>-</b>cct<b>-</b>gaa<b>-</b>gtt<b>-</b>ctc<b>-</b>agg...<span></p>
+<p> Frame 2: <span class="DNA_seqBIG dark">a<b>-</b>ctc<b>-</b>acc<b>-</b>ctg<b>-</b>aag<b>-</b>ttc<b>-</b>tca<b>-</b>gga...<span></p>
+<p> Frame 3: <span class="DNA_seqBIG blue">ac<b>-</b>tca<b>-</b>ccc<b>-</b>tga<b>-</b>agt<b>-</b>tct<b>-</b>cag<b>-</b>gat...<span></p>
+
+<p>Sonifiying the first frame would read:<br> 
+<span class="DNA_seqBIG red">act<b>-</b>cac<b>-</b>cct<b>-</b>gaa<b>-</b>gtt<b>-</b>ctc...<span></p>
+
+<p>However Sonifiying all frames  would read act: <br>
+<span class="DNA_seqBIG red">act<span><b>-</b><span class="DNA_seqBIG dark">ctc<span><b>-</b><span class="DNA_seqBIG blue">tca<span><b>-</b><span class="DNA_seqBIG red">cac<span><b>-</b><span class="DNA_seqBIG dark">acc<span><b>-</b><span class="DNA_seqBIG blue">ccc<span>...<span></p>
 
 <p>Only one of these reading frames is processed by the cell to make a protein, this is determined by recognition of landmarks or motifs in the sequence such as an inframe "atg" start codon or other codons, such as "tga" that determine the end of a gene. In addition other motifs such as 5'-tataaa-3' determine protein binding sites approximately 25 base pairs upstream of transcription start.<p>
 
@@ -113,7 +124,6 @@ actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgt
 
 
   <tr><th>codon to number</th><th>three octaves</th><th>midi note numbers</th></tr>
-
   <tr><td>1</td><td>A</td><td>57</td></tr>
   <tr><td>2</td><td>B</td><td>59</td></tr>
   <tr><td>3</td><td>C</td><td>60</td></tr>
@@ -135,7 +145,6 @@ actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgt
   <tr><td>19</td><td>E</td><td>88</td></tr>
   <tr><td>20</td><td>F</td><td>89</td></tr>
   <tr><td>21</td><td>G</td><td>91</td></tr>
-
   </table>
 
   <h3>Midi note numbers</h3>
@@ -145,7 +154,6 @@ actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgt
   <tr>
   <th></th><th>C</th><th>C#</th><th>D</th><th>D#</th><th>E</th><th>F</th><th>F#</th><th>G</th><th>G#</th><th>A</th><th>A#</th><th>B</th>
   </tr>
-
   <tr><th>0</th><td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td></tr>
   <tr><th>1</th><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
   <tr><th>2</th><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td>32</td><td>33</td><td>34</td><td>35</td></tr>
@@ -156,7 +164,7 @@ actcaccctgaagttctcaggatccacgtgcagcttgtcacagtgcagctcactcagtgt
   <tr><th>7</th><td>84</td><td>85</td><td>86</td><td>87</td><td>88</td><td>89</td><td>90</td><td>91</td><td>92</td><td>93</td><td>94</td><td>95</td></tr>
   <tr><th>8</th><td>96</td><td>97</td><td>98</td><td>99</td><td>100</td><td>101</td><td>102</td><td>103</td><td>104</td><td>105</td><td>106</td><td>107</td></tr>
   <tr><th>9</th><td>108</td><td>109</td><td>110</td><td>111</td><td>112</td><td>113</td><td>114</td><td>115</td><td>116</td><td>117</td><td>118</td><td>119</td></tr>
-  <tr><th>10</th><td>120</td><td>121</td><td>222</td><td>123</td><td>124</td><td>125</td><td>126</td><td>127</td></td><td></td><td></td><td></td><td></tr>
+  <tr><th>10</th><td>120</td><td>121</td><td>122</td><td>123</td><td>124</td><td>125</td><td>126</td><td>127</td></td><td></td><td></td><td></td><td></tr>
 </span>
   </table>
 </div>

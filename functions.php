@@ -352,9 +352,9 @@ function makeRadioBoxes($options, $selectOption, $default, $name){
 				$bStart = '<element class="radio_span">';
 				$bEnd = ' </element>';			}else{}
 		}
-    echo'<div class="highlight">';
-		echo'<input type="'.$inputType.'" name="'.$name.'" value="'.$value.'" '.$check.' /> '.$bStart.$value_readable.$bEnd.' <br>';
-    echo'</div>';
+    echo'<label class="highlight">';
+		echo'<input id="radio_rfc" type="'.$inputType.'" name="'.$name.'" value="'.$value.'" '.$check.' /> '.$bStart.$value_readable.$bEnd;
+    echo'</label><br>';
 
   }
 }
@@ -415,8 +415,22 @@ function makeCodonPlus($codon, $codon2note){
 							($_POST['frameNum'] == '1bp')){
 							$octave = '';
 						}else{
+// all codons motifs enter this if statement, 1, 3, 3bp              echo $_POST['frameNum'];
+            if ($_POST['frameNum'] == '3'){
 							switch ($c2n[5]) {
-								case $c2n[5] <12: 	$octave 	= 0; break;
+								case $c2n[5] <36: 	$octave 	= 0; break;
+								case $c2n[5] <48: 	$octave 	= 1; break;
+								case $c2n[5] <60: 	$octave 	= 2; break;
+								case $c2n[5] <72: 	$octave 	= 3; break;
+								case $c2n[5] <84: 	$octave 	= 4; break;
+								case $c2n[5] <96: 	$octave 	= 5; break;
+								case $c2n[5] <108: 	$octave 	= 6; break;
+								case $c2n[5] <120: 	$octave 	= 7; break;
+								default: 			$octave 	= 'x';
+              }
+            }
+            if ($_POST['frameNum'] == '1'){
+							switch ($c2n[5]) {
 								case $c2n[5] <24: 	$octave 	= 1; break;
 								case $c2n[5] <36: 	$octave 	= 2; break;
 								case $c2n[5] <48: 	$octave 	= 3; break;
@@ -425,10 +439,26 @@ function makeCodonPlus($codon, $codon2note){
 								case $c2n[5] <84: 	$octave 	= 6; break;
 								case $c2n[5] <96: 	$octave 	= 7; break;
 								case $c2n[5] <108: 	$octave 	= 8; break;
-								case $c2n[5] <120: 	$octave 	= 9; break;
+                case $c2n[5] <120: 	$octave 	= 9; break;
+                default: 			$octave 	= 'x';
+              }
+            }
+            if ($_POST['frameNum'] == '3bp'){
+							switch ($c2n[5]) {
+								case $c2n[5] <24: 	$octave 	= 0; break;
+								case $c2n[5] <36: 	$octave 	= 1; break;
+								case $c2n[5] <48: 	$octave 	= 2; break;
+								case $c2n[5] <60: 	$octave 	= 3; break;
+								case $c2n[5] <72: 	$octave 	= 4; break;
+								case $c2n[5] <84: 	$octave 	= 5; break;
+								case $c2n[5] <96: 	$octave 	= 6; break;
+								case $c2n[5] <108: 	$octave 	= 7; break;
 								default: 			$octave 	= 'x';
-							}
-						}
+              }
+            }
+
+            }
+            
 					$array1["$rf_numb"]["$c_numb"] = array(
 					'codon64_numb' =>	$c2n[0],
 					'codon' => 			$c2n[1],
@@ -730,7 +760,7 @@ return $txtWrap;
 }
 
 function show_array($a){
-//echo "<pre>";
+echo "<pre>";
 print_r($a);
-//echo "</pre>";
+echo "</pre>";
 }

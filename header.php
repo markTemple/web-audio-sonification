@@ -28,9 +28,6 @@
 				<a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="help.php">Help</a>
-			</li>
-			<li class="nav-item">
 				<a class="nav-link" href="help_algorithms.php">Algorithms</a>
 			</li>
 			<li class="nav-item">
@@ -43,7 +40,7 @@
 				<a class="nav-link" href="links.php">Links</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="about.php">Info</a>
+				<a class="nav-link" href="about.php">About</a>
 			</li>
 		</ul>
 	</div>

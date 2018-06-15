@@ -16,16 +16,17 @@ $check2 = '';
 if(!empty($_POST['dnaseq_radio'])){
 //if($_POST['dnaseq_radio'] == 'dnaseq_userInput'){
 	$form_val_DNAseq_name = $_POST['DNAseq_name'];
-	$form_val_dna_seq = $_POST['dna_seq'];
-	}
+  $form_val_dna_seq = $_POST['dna_seq'];
+  $form_val_numbCodons = $_POST['numbCodons'];}
 	else{
+  $form_val_numbCodons = '39';
 	$form_val_DNAseq_name = 'User_input_DNA';
 	$form_val_dna_seq = 'GGGAAAGGGAAATTTCCCGGGAAAGGGAAATTTCCCGGGAAAGGGAAATTTCCCGGGAAAGGGAAATTTCCCGG';
 	$check2 = 'checked="checked"'; // set defalt radio to random
 	//fix for Notice: Undefined variable errors in form_audio_control.php
 	$postdata['frameNum'] = '3';
 	$postdata['stopstart'] = 'strict';
-	$postdata['sonify_motif'] = 'yes';
+	$postdata['sonify_motif'] = 'no';
 	$_POST['DNAseq_name'] = '';
 	$_POST['dnaseq_radio'] = '';
 	$_POST['yeastdnaSeqs_or_Predefined'] = '';
@@ -51,8 +52,8 @@ if(!empty($_POST['dnaseq_radio'])){
       </span>
       </div>
     </div>
-    <div class="col-md-6">
-      <h3>Further options</h3>
+    <div class="col-md-6" id="rfc">
+      <h3>Codon options</h3>
       <div class="card card-body">
       <span>
         <?php 	$stopstart = make_stopstart();
@@ -75,6 +76,22 @@ makeRadioBoxes($sonify_motif, $postdata['sonify_motif'], 'no', 'sonify_motif', '
         </div>
     </div>
   </div>
+
+<script>
+var algorithm_radio = $('input:radio[name=frameNum]:checked').val();
+if(algorithm_radio !== '3'){
+  document.getElementById("rfc").style.opacity = 0.5;
+}
+
+$('input[name=frameNum]').change(function(){
+    value = $( 'input[name=frameNum]:checked' ).val();
+    if(value == 3){
+      document.getElementById("rfc").style.opacity = 1;
+    }else{
+      document.getElementById("rfc").style.opacity = 0.5;
+    }
+});
+</script>
 
   <div class="row">
     <div class="col-md-6">

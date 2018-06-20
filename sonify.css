@@ -15,6 +15,16 @@
   --boarder: #B7AD99;
   --pale: rgb(233, 233, 233);
   --darkblue:#00356e;
+  --srtCol:#006e05;
+  --stpCol:#810202;
+}
+
+.srt{
+  color: var(--srtCol);
+}
+
+.stp{
+  color: var(--stpCol);
 }
 
 *, *:before, *:after {

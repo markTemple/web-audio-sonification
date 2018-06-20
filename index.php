@@ -53,7 +53,7 @@ if(!empty($_POST['dnaseq_radio'])){
       </div>
     </div>
     <div class="col-md-6" id="rfc">
-      <h3>Codon options</h3>
+      <h3>Reading frame codon options</h3>
       <div class="card card-body">
       <span>
         <?php 	$stopstart = make_stopstart();

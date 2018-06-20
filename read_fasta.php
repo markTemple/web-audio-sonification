@@ -36,8 +36,9 @@ if(strlen("$dna_seq") > 5000){
   //break;
 }
 
-$track_header = makeTrackHeader();
+// $track_header = makeTrackHeader();
 $mididata = makeMididataArray();
+//show_array($mididata);
 
 foreach($_POST as $key => $selected){// put in to function avoid repitition
   if(isset($selected)){
@@ -52,42 +53,42 @@ $dna_seq = truncate_string($dna_seq, 10000);// a bit random!
 if($_POST['frameNum'] == '3'){
   $codon               = make3frames($dna_seq);
   $seq2note_algorithm       = 'Make_codon2noteArray_scale';
-  $track_header['this2next']     = $track_header['this2next'];
+  // $track_header['this2next']     = $track_header['this2next'];
   $len_bp2sonify = 3;
   $numb_of_RFs = 3;
 }
 elseif($_POST['frameNum'] == '1'){
   $codon               = makeprotein($dna_seq);
   $seq2note_algorithm       = 'Make_codon2noteArray_scale';
-  $track_header['this2next']     = $track_header['this2next'] * 0.5;
+  // $track_header['this2next']     = $track_header['this2next'] * 0.5;
   $len_bp2sonify = 3;
   $numb_of_RFs = 1;
 }
 elseif($_POST['frameNum'] == '1bp'){
   $codon               = make_1BP($dna_seq);
   $seq2note_algorithm       = 'Make_monoBP_2noteArray_scale';
-  $track_header['this2next']     = $track_header['this2next'] * 0.5;
+  // $track_header['this2next']     = $track_header['this2next'] * 0.5;
   $len_bp2sonify = 1;
   $numb_of_RFs = 1;
 }
 elseif($_POST['frameNum'] == '2bp'){
   $codon               = make_2BP($dna_seq);
   $seq2note_algorithm       = 'Make_diBP_2noteArray_scale';
-  $track_header['this2next']     = $track_header['this2next'] * 0.5;
+  // $track_header['this2next']     = $track_header['this2next'] * 0.5;
   $len_bp2sonify = 2;
   $numb_of_RFs = 1;
 }
 elseif($_POST['frameNum'] == '2bpx2'){
   $codon               = make_2BPx2($dna_seq);
   $seq2note_algorithm       = 'Make_diBP_2noteArray_scale';
-  $track_header['this2next']     = $track_header['this2next'];
+  // $track_header['this2next']     = $track_header['this2next'];
   $len_bp2sonify = 2;
   $numb_of_RFs = 2;
 }
 elseif($_POST['frameNum'] == '3bp'){
   $codon               = make_3BP($dna_seq);
   $seq2note_algorithm       = 'Make_triBP_2noteArray_scale';
-  $track_header['this2next']     = $track_header['this2next'] * 0.5;
+  // $track_header['this2next']     = $track_header['this2next'] * 0.5;
   $len_bp2sonify = 3;
   $numb_of_RFs = 3;// add another catogory 1 rf all codons
 }else{}
@@ -151,7 +152,7 @@ if(! empty($motif_position1)) {
   //echo $lastMotifStr;
   }else{
 }
-$codon2note = makeCodon2note($mididata, $seq2note_algorithm, $numb_of_RFs);
+$codon2note = makeCodon2note('', $seq2note_algorithm, $numb_of_RFs);
 $codon_plus_array = makeCodonPlus($codon, $codon2note);
 
  //show_array($codon2note);
@@ -184,6 +185,8 @@ foreach($frame_note_data as $k => $array){
 //$tracks_for_midi_header = $count+1;
 //include("MidiTrk.php");
 //show_array($track_header);
+
+//show_array($frame_note_data);
 
 foreach($frame_note_data as $rf_numb => $array){
   $frame_note_data_chunks[] = array_chunk($array, '22');

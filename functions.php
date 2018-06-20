@@ -353,20 +353,20 @@ function makeRadioBoxes($options, $selectOption, $default, $name){
 				$bEnd = ' </element>';			}else{}
 		}
     echo'<label class="highlight">';
-		echo'<input id="radio_rfc" type="'.$inputType.'" name="'.$name.'" value="'.$value.'" '.$check.' /> '.$bStart.$value_readable.$bEnd;
+		echo'<input type="'.$inputType.'" name="'.$name.'" value="'.$value.'" '.$check.' /> '.$bStart.$value_readable.$bEnd;
     echo'</label><br>';
 
   }
 }
 
-function getTDcol(){
-$td = array(
-	1 => '<td bgcolor="#CCFFCC">',
-	2 => '<td bgcolor="#FFFFCC">',
-	3 => '<td bgcolor="#EEEEEE">',
-	4 => '<td bgcolor="#FFCCFF">');
-return 	$td;
-}
+// function getTDcol(){
+// $td = array(
+// 	1 => '<td bgcolor="#CCFFCC">',
+// 	2 => '<td bgcolor="#FFFFCC">',
+// 	3 => '<td bgcolor="#EEEEEE">',
+// 	4 => '<td bgcolor="#FFCCFF">');
+// return 	$td;
+// }
 
 function adjustPlaynote($codon, $this_note){
 	$time_adjust = str_replace("G", "+25|", $codon);
@@ -418,14 +418,14 @@ function makeCodonPlus($codon, $codon2note){
 // all codons motifs enter this if statement, 1, 3, 3bp              echo $_POST['frameNum'];
             if ($_POST['frameNum'] == '3'){
 							switch ($c2n[5]) {
-								case $c2n[5] <36: 	$octave 	= 0; break;
-								case $c2n[5] <48: 	$octave 	= 1; break;
-								case $c2n[5] <60: 	$octave 	= 2; break;
-								case $c2n[5] <72: 	$octave 	= 3; break;
-								case $c2n[5] <84: 	$octave 	= 4; break;
-								case $c2n[5] <96: 	$octave 	= 5; break;
-								case $c2n[5] <108: 	$octave 	= 6; break;
-								case $c2n[5] <120: 	$octave 	= 7; break;
+								case $c2n[5] <12: 	$octave 	= 0; break;
+								case $c2n[5] <24: 	$octave 	= 1; break;
+								case $c2n[5] <36: 	$octave 	= 2; break;
+								case $c2n[5] <48: 	$octave 	= 3; break;
+								case $c2n[5] <60: 	$octave 	= 4; break;
+								case $c2n[5] <72: 	$octave 	= 5; break;
+								case $c2n[5] <84: 	$octave 	= 6; break;
+								case $c2n[5] <96: 	$octave 	= 7; break;
 								default: 			$octave 	= 'x';
               }
             }
@@ -445,14 +445,14 @@ function makeCodonPlus($codon, $codon2note){
             }
             if ($_POST['frameNum'] == '3bp'){
 							switch ($c2n[5]) {
-								case $c2n[5] <24: 	$octave 	= 0; break;
-								case $c2n[5] <36: 	$octave 	= 1; break;
-								case $c2n[5] <48: 	$octave 	= 2; break;
-								case $c2n[5] <60: 	$octave 	= 3; break;
-								case $c2n[5] <72: 	$octave 	= 4; break;
-								case $c2n[5] <84: 	$octave 	= 5; break;
-								case $c2n[5] <96: 	$octave 	= 6; break;
-								case $c2n[5] <108: 	$octave 	= 7; break;
+								case $c2n[5] <3: 	$octave 	= 0; break;
+								case $c2n[5] <12: 	$octave 	= 1; break;
+								case $c2n[5] <24: 	$octave 	= 2; break;
+								case $c2n[5] <26: 	$octave 	= 3; break;
+								case $c2n[5] <48: 	$octave 	= 4; break;
+								case $c2n[5] <60: 	$octave 	= 5; break;
+								case $c2n[5] <72: 	$octave 	= 6; break;
+								case $c2n[5] <84: 	$octave 	= 7; break;
 								default: 			$octave 	= 'x';
               }
             }
@@ -482,19 +482,25 @@ return $array1;
 
 //push in motif_array????
 function makeCodon2note($mididata, $seq2note_algorithm, $numb_of_RFs){
-$rf_numb_count = range(1, $numb_of_RFs);
+  $rf_numb_count = range(1, $numb_of_RFs);
 	foreach($rf_numb_count as $rf_numb){
 
-		$low2high = getInstuRange($mididata["$rf_numb"]['instr_numb']);
-		if($low2high === NULL){$low2high = '36,100';}
+		// $low2high = getInstuRange($mididata["$rf_numb"]['instr_numb']);
+		// $low2high = null;
+		// if($low2high === null){
 
-		if($_POST['frameNum'] == '3bp'){$low2high = '24,127';}// otherwise 64 notes go higher that 127
+      // match table notes to canvas notes good for rfc
+      $low2high = '24,100';
+      if($_POST['frameNum'] == '3bp'){$low2high = '1,100';}
+
+		// if($_POST['frameNum'] == '3bp'){$low2high = '36,127';}// otherwise 64 notes go higher that 127
 
 		$low2high_string = explode(',',$low2high);
 		$low_note = $low2high_string[0];
 
-		$k = $_POST['key2play'];
-		$low_note = $low_note + $k;//yes good
+  //echo $low_note;
+		// $k = $_POST['key2play'];
+		// $low_note = $low_note + $k;//yes good
 
 		$noteNumber_NoteName = midiNumb2note();
 
@@ -516,7 +522,8 @@ $rf_numb_count = range(1, $numb_of_RFs);
 
 		if($_POST['frameNum'] == '3bp')// otherwise 64 notes go higher that 127
 		{
-			$intervals_whwwhww_12 = midiNoteScale($semitone);// only allow restricted note range
+      $intervals_whwwhww_12 = midiNoteScale($semitone);// only allow restricted note range
+
 		}else{
 			$intervals_whwwhww_12 = midiNoteScale($$_POST['scale']);
 		}
@@ -533,8 +540,8 @@ $rf_numb_count = range(1, $numb_of_RFs);
 				}
 			}
 		}
-
-		unset($intervals_whwwhww_12);
+    unset($intervals_whwwhww_12);
+    
 		$codon2note["$rf_numb"] = $seq2note_algorithm();
 		foreach($scale_from_rootNote as $i => $midi_numb2note){//$i starts on zero
 			foreach($codon2note["$rf_numb"] as $i2 => $codon_array){//$i2 starts on zero also

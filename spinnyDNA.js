@@ -240,16 +240,6 @@ async function playDnaAudio () {
     return mapping[motif];
   }
 
-  // function motifToSynthDrums (motif) {
-  //     let mapping = {
-  //         ATG: 0,
-  //         TGA: 1,
-  //         TAA: 2,
-  //         TAG: 3
-  //     };
-  //     return mapping[motif];
-  // }
-
   // returns one array of DNA motifs eg, G or AT or GCA
   function motifArr (Str, j) {
     rfcount = 0;
@@ -338,10 +328,12 @@ async function playDnaAudio () {
   function RFMotifArr_STOPS (AllMotifArr, RFMotifArr) {
     var stopstart = PHP_vars.stopstart;
     var ArrRF = [];
+    // var ArrRfTables = [];
     var rfcount = 0;
-
+    
     AllMotifArr.forEach(function (rf) {
       var motifToFreq = [];
+      // var eachRfTable = [];
       var count = 0;
       var stopUntil = 0;
       // RFMotifArr[rf] = sortArrkeys(RFMotifArr[rf]);
@@ -353,16 +345,21 @@ async function playDnaAudio () {
       }
 
       RFMotifArr[rf].forEach(function (motif, key) {
+        // var motifColor = motif;
+
         if (silent(motif)['srt'] === true) {
           if (PHP_vars.sonify_motif === 'yes') {
             motif = 'start';
+            // motifColor = 'green';
           }
+          // motifColor = `<span class="srtCol">${motifColor}</span>|`;
           stopUntil = 0;
         }
 
         if (silent(motif)['stp'] === true) {
           if (PHP_vars.sonify_motif === 'yes') {
             var stopMotif = 'stop';
+
           }
           stopUntil = RFArrLen;
           if (stopstart === 'yes') {
@@ -372,19 +369,23 @@ async function playDnaAudio () {
 
         if (key < stopUntil && motif.length === 3) {
           motif = ' . ';
+          // motifColor = `<span class="stpCol">${motifColor}/span>|`;
         }
         if (stopMotif === 'stop') {
           motif = stopMotif; // overwrite xxx on actual stop codon
         }
-        // console.log('key', key, 'count', count, 'stopUntil', stopUntil, 'motif', motif)
+
         count = count + 3;
         motifToFreq[key] = motif;
+        // eachRfTable[key] = motifColor;
       });
 
       ArrRF[rfcount] = motifToFreq;
+      // ArrRfTables[rfcount] = eachRfTable;
       rfcount++;
     });
-    // console.log(ArrRF)
+    // console.log(ArrRfTables);
+    // return { ArrRF, ArrRfTables };
     return ArrRF;
   }
 
@@ -395,7 +396,9 @@ async function playDnaAudio () {
     if (PHP_vars.frameNum === '3') {
       var stopstart = PHP_vars.stopstart;
       if (stopstart !== 'no') {
-        return RFMotifArr_STOPS(AllMotifArr, RFMotifArr);
+        const ArrRF = RFMotifArr_STOPS(AllMotifArr, RFMotifArr);
+        // return ArrRF.ArrRF;
+        return ArrRF;
       }
     }
     return RFMotifArr;
@@ -425,7 +428,7 @@ async function playDnaAudio () {
     Arr.forEach(function (dnaMotif, key) {
       let rf = key % PHP_vars.motif_len;
       time = key * 0.16;
-      // if(dnaMotif.length !== PHP_vars.motif_len){return} // FUCK
+      // if(dnaMotif.length !== PHP_vars.motif_len){return} // FCUK!
 
       if (PHP_vars.frameNum === '3') {
         noteNumber = codonToNoteNumber(dnaMotif);
@@ -605,7 +608,8 @@ async function playDnaAudio () {
     timeNoteNumber = timeNoteNumber.filter(function () {
       return true;
     }); // reset key to actual
-    // console.log(timeNoteNumber)
+    // console.log(animationQueue);
+    // console.log(timeNoteNumber);
     return { timeNoteNumber, Unique_notes };
   }
 
@@ -768,14 +772,14 @@ async function playDnaAudio () {
   var AllMotifArr = RFArr();
   // console.log('AllMotifArr', AllMotifArr)
   var RFMotifArr = makeRFMotifArr();
-  // console.log('RFMotifArr', RFMotifArr);
+  //  console.log('RFMotifArr', RFMotifArr);
   var data = stopStartOptions();
-  // console.log(data);
+ //  console.log(data);
   var motifsForAudio = multiToSingle_array(data);
-  // console.log('motifsForAudio', motifsForAudio);
+ //console.log('motifsForAudio', motifsForAudio);
   var Mp3_OrderToPlayArr = toMP3(motifsForAudio);
   
-  console.log(Mp3_OrderToPlayArr);
+  //console.log(Mp3_OrderToPlayArr);
   
   var audio = await playMP3notes(Mp3_OrderToPlayArr);
   // console.log(audio);
